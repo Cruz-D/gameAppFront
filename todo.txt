@@ -1,0 +1,5 @@
+manejar contenedor de contenido con router
+
+generar un paginador para el contenido
+
+crear formularios de login y registgro con validaciones y probar con json server

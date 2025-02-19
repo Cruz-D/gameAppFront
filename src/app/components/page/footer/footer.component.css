@@ -1,0 +1,38 @@
+.custom-footer {
+  background-color: #343a40;
+  color: #ffffff;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  color: #ffffff;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.footer-bottom {
+  background-color: #23272b;
+  padding: 1rem 0;
+}

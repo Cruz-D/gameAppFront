@@ -1,0 +1,84 @@
+/* Navbar */
+.navbar {
+  padding: 0.7rem 1.5rem;
+  background-color: #e41212;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Marca y Logo */
+.navbar-brand {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand i {
+  font-size: 1.8rem;
+  margin-right: 8px;
+}
+
+/* Links de Navegación */
+.nav-link {
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  color: #e41212 !important;
+  background-color: #ffffff;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: #e41212;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+  background-color: #ffffff;
+  color: #e41212;
+  border-radius: 5px;
+}
+
+/* Botón de Toggle (Responsive) */
+.navbar-toggler {
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.navbar-toggler-icon {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+/* Botón de Registro */
+.btn-outline-light {
+  color: #9dc72b;
+  border: 2px solid #b00fd8;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-outline-light:hover {
+  color: #da1021;
+  background-color: #19da39;
+  border-color: #13e6d4;
+}
