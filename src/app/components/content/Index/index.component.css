@@ -1,0 +1,36 @@
+.container-fluid {
+  height: 100%;
+  background-color: rgb(190, 218, 163);
+  padding: 0 15px;
+}
+
+.container-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 2%;
+  transition: transform 0.5s, box-shadow 0.5s;
+
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .container-card {
+    padding: 1%; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  .paginator {
+    flex-direction: column; /* Cambiar la dirección del paginador a columna en pantallas pequeñas */
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-card {
+    padding: 0.5%; /* Reducir aún más el padding en pantallas muy pequeñas */
+  }
+}

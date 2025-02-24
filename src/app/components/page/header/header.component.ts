@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'Angular 7 CRUD Application';
+  title = 'GameApp Front';
   constructor() { }
 
   ngOnInit() {

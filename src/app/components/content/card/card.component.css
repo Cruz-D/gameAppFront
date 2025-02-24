@@ -1,0 +1,164 @@
+/* Estilos para la tarjeta */
+.card {
+  border: 1px solid #ddd; /* Borde de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Ocultar contenido que se desborde */
+  height: 100%; /* Altura completa */
+  max-width: 35vh; /* Ancho máximo */
+  max-height: fit-content ;
+  padding: auto;
+  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves para transformaciones y sombras */
+
+}
+
+/* Estilos para la tarjeta al pasar el ratón */
+.card:hover {
+  transform: scale(1.05); /* Escalar ligeramente la tarjeta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
+}
+
+/* Estilos para el cuerpo de la tarjeta */
+.card-body {
+  display: none;
+  padding: 40px; /* Relleno interno */
+  height: 100%; /* Altura completa */
+  transition: opacity 0.3s; /* Transición suave para la opacidad */
+
+
+}
+
+/* Estilos para el título de la tarjeta */
+.card-title {
+  font-size: 1.25rem; /* Tamaño de fuente */
+  margin-bottom: 10px; /* Margen inferior */
+  text-align: center; /* Alineación centrada */
+  color: #333; /* Color del texto */
+}
+
+/* Estilos para el texto de la tarjeta */
+.card-text {
+  font-size: 0.9rem; /* Tamaño de fuente */
+  color: #555; /* Color del texto */
+  text-align: start; /* Alineación del texto al inicio */
+}
+
+/* Estilos para la imagen del cuerpo de la tarjeta */
+.card-body-image {
+  display: block; /* Ocultar inicialmente */
+  opacity: 1; /* Opacidad inicial */
+  transition: opacity 0.3s linear; /* Transición suave para la opacidad */
+}
+
+/* Estilos para el cuerpo de la tarjeta al pasar el ratón */
+.card:hover .card-body {
+  display: block;
+}
+
+
+/* Estilos para la imagen del cuerpo de la tarjeta al pasar el ratón */
+.card:hover .card-body-image {
+  display: none; /* Mostrar la imagen */
+  opacity: 1; /* Opacidad completa */
+  transition: opacity 0.3s linear; /* Transición suave para la opacidad */
+
+}
+
+/* Estilos para la imagen de la tarjeta */
+.card-img-top {
+  object-fit: cover; /* Cubrir toda la tarjeta */
+  width: 100%; /* Ancho completo */
+  height: auto; /* Altura automática */
+  display: block; /* Mostrar como bloque */
+  transition : transform 0.3s; /* Transición suave para transformaciones */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .card {
+    max-width: 250px; /* Ancho máximo en pantallas pequeñas */
+  }
+
+  .card-body {
+    padding: 15px; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  .card-title {
+    font-size: 1rem; /* Reducir el tamaño de la fuente del título en pantallas pequeñas */
+  }
+
+  .card-text {
+    font-size: 0.8rem; /* Reducir el tamaño de la fuente del texto en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    max-width: 200px; /* Ancho máximo en pantallas muy pequeñas */
+  }
+
+  .card-body {
+    padding: 10px; /* Reducir aún más el padding en pantallas muy pequeñas */
+  }
+
+  .card-title {
+    font-size: 0.9rem; /* Reducir aún más el tamaño de la fuente del título en pantallas muy pequeñas */
+  }
+
+  .card-text {
+    font-size: 0.7rem; /* Reducir aún más el tamaño de la fuente del texto en pantallas muy pequeñas */
+  }
+}
+
+@media (max-width: 992px) {
+  .card {
+    max-width: 210px; /* Ancho máximo en tablets y portátiles pequeños */
+  }
+
+  .card-body {
+    padding: 20px; /* Ajustar el padding en tablets y portátiles pequeños */
+  }
+
+  .card-title {
+    font-size: 1.1rem; /* Ajustar el tamaño de la fuente del título en tablets y portátiles pequeños */
+  }
+
+  .card-text {
+    font-size: 0.85rem; /* Ajustar el tamaño de la fuente del texto en tablets y portátiles pequeños */
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    max-width: 220px; /* Ancho máximo en tablets y portátiles pequeños */
+  }
+
+  .card-body {
+    padding: 20px; /* Ajustar el padding en tablets y portátiles pequeños */
+  }
+
+  .card-title {
+    font-size: 1.1rem; /* Ajustar el tamaño de la fuente del título en tablets y portátiles pequeños */
+  }
+
+  .card-text {
+    font-size: 0.85rem; /* Ajustar el tamaño de la fuente del texto en tablets y portátiles pequeños */
+  }
+}
+
+@media (max-width: 1440px) {
+  .card {
+    max-width: 230px; /* Ancho máximo en tablets y portátiles pequeños */
+  }
+
+  .card-body {
+    padding: 10px; /* Ajustar el padding en tablets y portátiles pequeños */
+  }
+
+  .card-title {
+    font-size: 1.1rem; /* Ajustar el tamaño de la fuente del título en tablets y portátiles pequeños */
+  }
+
+  .card-text {
+    font-size: 0.85rem; /* Ajustar el tamaño de la fuente del texto en tablets y portátiles pequeños */
+  }
+}

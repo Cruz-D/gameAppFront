@@ -3,8 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/page/header/header.component';
 import { NavbarComponent } from './components/page/navbar/navbar.component';
 import { FooterComponent } from './components/page/footer/footer.component';
-import { ContentFatherComponent } from './components/content/contentFather/contentFather.component';
-
+import { IndexComponent } from './components/content/Index/index.component';
+import { routes } from './app.routes';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
   imports: [
@@ -12,8 +13,9 @@ import { ContentFatherComponent } from './components/content/contentFather/conte
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
-    ContentFatherComponent,
+    IndexComponent,
   ],
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

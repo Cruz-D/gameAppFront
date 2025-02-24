@@ -10,7 +10,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'Nintendo',
     release: '2017-03-03',
     status: 'Released',
-    image: 'https://example.com/zelda.jpg'
+    image: 'https://zelda.nintendo.com/breath-of-the-wild/assets/media/wallpapers/tablet-1.jpg'
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'Sony Interactive Entertainment',
     release: '2018-04-20',
     status: 'Released',
-    image: 'https://example.com/godofwar.jpg'
+    image: 'https://www.ultimagame.es/god-war-4/imagen-i19055-pge.jpg'
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'Rockstar Games',
     release: '2018-10-26',
     status: 'Released',
-    image: 'https://example.com/reddead2.jpg'
+    image: 'https://i.blogs.es/juegos/13424/red_dead_3__nombre_temporal_/fotos/maestras/red_dead_3__nombre_temporal_-4030936.jpg'
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'CD Projekt',
     release: '2015-05-19',
     status: 'Released',
-    image: 'https://example.com/witcher3.jpg'
+    image: 'https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3WildHuntCompleteEdition_CDPROJEKTRED_S2_1200x1600-53a8fb2c0201cd8aea410f2a049aba3f'
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'CD Projekt',
     release: '2020-12-10',
     status: 'Released',
-    image: 'https://example.com/cyberpunk2077.jpg'
+    image: 'https://muropaketti.com/wp-content/uploads/2020/12/cyberpunk-box.jpg'
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'Mojang Studios',
     release: '2011-11-18',
     status: 'Released',
-    image: 'https://example.com/minecraft.jpg'
+    image: 'https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2020/09/30/minecraft-cover-art.jpg'
   },
   {
     id: 7,
@@ -76,7 +76,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'Epic Games',
     release: '2017-07-25',
     status: 'Released',
-    image: 'https://example.com/fortnite.jpg'
+    image: 'https://cdn1.epicgames.com/offer/fn/FNBR_34-00_C6S2_EGS_Launcher_KeyArt_FNlogo_Blade_1200x1600_1200x1600-0aa5c6ea35dab419ec28980fdb402e89'
   },
   {
     id: 8,
@@ -87,7 +87,7 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     publisher: 'Electronic Arts',
     release: '2019-02-04',
     status: 'Released',
-    image: 'https://example.com/apexlegends.jpg'
+    image: 'https://static.serlogal.com/imagenes_big/9788467/978846795073.JPG'
   },
   {
     id: 9,
@@ -110,5 +110,60 @@ export const VIDEOGAME_DATA: IVideogame[] = [
     release: '2020-09-17',
     status: 'Released',
     image: 'https://example.com/hades.jpg'
+  },
+  {
+    id: 11,
+    title: 'The Last of Us Part II',
+    genre: 'Action-adventure',
+    platform: 'PlayStation 4',
+    rating: 'M',
+    publisher: 'Sony Interactive Entertainment',
+    release: '2020-06-19',
+    status: 'Released',
+    image: 'https://example.com/lastofus2.jpg'
+  },
+  {
+    id: 12,
+    title: 'Ghost of Tsushima',
+    genre: 'Action-adventure',
+    platform: 'PlayStation 4',
+    rating: 'M',
+    publisher: 'Sony Interactive Entertainment',
+    release: '2020-07-17',
+    status: 'Released',
+    image: 'https://example.com/ghostoftsushima.jpg'
+  },
+  {
+    id: 13,
+    title: 'Horizon Zero Dawn',
+    genre: 'Action RPG',
+    platform: 'PlayStation 4, PC',
+    rating: 'T',
+    publisher: 'Sony Interactive Entertainment',
+    release: '2017-02-28',
+    status: 'Released',
+    image: 'https://example.com/horizonzerodawn.jpg'
+  },
+  {
+    id: 14,
+    title: 'Sekiro: Shadows Die Twice',
+    genre: 'Action-adventure',
+    platform: 'PlayStation 4, Xbox One, PC',
+    rating: 'M',
+    publisher: 'Activision',
+    release: '2019-03-22',
+    status: 'Released',
+    image: 'https://example.com/sekiro.jpg'
+  },
+  {
+    id: 15,
+    title: 'Resident Evil Village',
+    genre: 'Survival horror',
+    platform: 'PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC',
+    rating: 'M',
+    publisher: 'Capcom',
+    release: '2021-05-07',
+    status: 'Released',
+    image: 'https://example.com/residentevilvillage.jpg'
   }
 ];

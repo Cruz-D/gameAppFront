@@ -9,15 +9,15 @@
       <app-navbar></app-navbar>
     </div>
   </nav>
-  <main class="row flex-grow-1 mt-5">
+  <main class="row flex-grow-1">
     <div class="col-md-12">
-      <!-- Aquí va el contenido principal de la aplicación -->
-      <app-contentFather></app-contentFather>
+      <!-- Aquí se renderizará el contenido de las rutas -->
+      <router-outlet></router-outlet>
     </div>
   </main>
-  <footer class="row mt-5">
+  <footer class="row">
     <div class="col-md-12">
-      <app-footer></app-footer>
+      <!-- <app-footer></app-footer> -->
     </div>
   </footer>
 </div>

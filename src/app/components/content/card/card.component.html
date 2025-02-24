@@ -1,14 +1,70 @@
-<div class="card" style="width: 18rem;">
-  <!-- <img src="{{ videogame.image }}" class="card-img-top" alt="{{ videogame.title }}"> -->
-  <div class="card-body">
-    <h5 class="card-title">{{ videogame.title }}</h5>
-    <p class="card-text">
-      <strong>Género:</strong> {{ videogame.genre }}<br>
-      <strong>Plataforma:</strong> {{ videogame.platform }}<br>
-      <strong>Calificación:</strong> {{ videogame.rating }}<br>
-      <strong>Publicador:</strong> {{ videogame.publisher }}<br>
-      <strong>Fecha de lanzamiento:</strong> {{ videogame.release }}<br>
-      <strong>Estado:</strong> {{ videogame.status }}
-    </p>
+<div class="card" style="width: 25rem;">
+
+  <div class="card-body-image">
+    <img class="card-img-top" src="{{ videogame.image }}" alt="Card image cap">
   </div>
+  <div class="card-body">
+
+    <h5 class="card-title">{{ videogame.title }}</h5>
+    <hr>
+    <div class="row mt-2">
+      <div class="col-6">
+        <strong>Género:</strong>
+      </div>
+      <div class="col-6 card-text">
+        {{ videogame.genre }}
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <strong>Plataforma:</strong>
+      </div>
+      <div class="col-6 card-text">
+        {{ videogame.platform }}
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <strong>Calificación:</strong>
+      </div>
+      <div class="col-6 card-text">
+        {{ videogame.rating }}
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <strong>Publicador:</strong>
+      </div>
+      <div class="col-6 card-text">
+        {{ videogame.publisher }}
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <strong>Fecha de lanzamiento:</strong>
+      </div>
+      <div class="col-6 card-text">
+        {{ videogame.release }}
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <strong>Estado:</strong>
+      </div>
+      <div class="col-6 card-text">
+        {{ videogame.status }}
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="col-6 btn btn-primary ">Editar</button>
+        <button type="button" class="col-6 btn btn-danger">Eliminar</button>
+      </div>
+
+
+
+
+  </div>
+
 </div>
