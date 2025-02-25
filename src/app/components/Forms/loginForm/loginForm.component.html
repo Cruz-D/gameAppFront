@@ -1,91 +1,83 @@
-<div class="row container-fluid">
-
-  <div class="col-md-5  colum-text">
-    <h1>Accede a tu perfil</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-      voluptatum similique officia nemo, magnam doloremque maxime sed aliquid
-      iure at corrupti, beatae ea accusantium repudiandae ipsa voluptatem dolore
-      facilis suscipit?
-    </p>
-    <hr />
-    <h1>Descarga los juegos que quieras</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-      voluptatum similique officia nemo, magnam doloremque maxime sed aliquid
-      iure at corrupti, beatae ea accusantium repudiandae ipsa voluptatem dolore
-      facilis suscipit?
-    </p>
-    <hr />
-    <h1>Interactua con nuestra comunidad</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-      voluptatum similique officia nemo, magnam doloremque maxime sed aliquid
-      iure at corrupti, beatae ea accusantium repudiandae ipsa voluptatem dolore
-      facilis suscipit?
-    </p>
-  </div>
-  <div class="col-md-1">
-
-  </div>
-  <div class="col-md-5  colum-form">
-
-    <h1 class="text-center">Inicia sesión</h1>
-
-    <form>
-      <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          formControlName="email"
-          placeholder="Ingresa tu correo"
-          autocomplete="email"
-          required
-        />
-      </div>
-
-      <div class="form-group mt-3">
-        <label for="password">Contraseña</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          formControlName="password"
-          placeholder="Ingresa tu contraseña"
-          autocomplete="current-password"
-          required
-        />
-      </div>
-
-      <div class="form-check form-switch mt-3">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="flexSwitchCheckDefault"
-        />
-        <label class="form-check-label" for="flexSwitchCheckDefault">
-          Recordar usuario
-        </label>
-      </div>
-
-      <div class="mt-1">
-        <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
-      </div>
-
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center colum-text">
+  <div class="row w-100">
+    <div class="col-md-5 colum-text">
+      <h1><i class="fas fa-user-circle"></i> Accede a tu perfil</h1>
+      <p>
+        Gestiona tu cuenta de forma sencilla y personalizada. Consulta tu historial, ajusta tus preferencias y accede a tus juegos desde cualquier dispositivo.
+      </p>
       <hr />
 
-      <div class="btn-group mt-3">
-        <button type="submit" class="btn btn-primary">
-          acceder
-        </button>
-        <a href="#" class="btn btn-danger-outline-primary">
-          ¿No estas registrado?, apuntate aqui
-        </a>
-      </div>
+      <h1><i class="fas fa-download"></i> Descarga los juegos que quieras</h1>
+      <p>
+        Explora un catálogo increíble de juegos y descárgalos en segundos. Disfruta de actualizaciones automáticas y almacenamiento en la nube para no perder tu progreso.
+      </p>
+      <hr />
 
+      <h1><i class="fas fa-comments"></i> Interactúa con nuestra comunidad</h1>
+      <p>
+        Conéctate con otros jugadores, comparte estrategias y participa en eventos exclusivos. Únete a una comunidad apasionada y descubre nuevas amistades.
+      </p>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5 colum-form">
+      <h1 class="text-center"><i class="fa-solid fa-headset"></i> Inicia sesión</h1>
 
-    </form>
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="Ingresa tu correo"
+            autocomplete="email"
+          />
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger mt-2">
+            <small *ngIf="loginForm.get('email')?.errors?.['required']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> El correo electrónico es requerido.</small>
+            <small *ngIf="loginForm.get('email')?.errors?.['email']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> El correo electrónico no es válido.</small>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Ingresa tu contraseña"
+            autocomplete="current-password"
+          />
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger mt-2">
+            <small *ngIf="loginForm.get('password')?.errors?.['required']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> La contraseña es requerida.</small>
+            <small *ngIf="loginForm.get('password')?.errors?.['minlength']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> La contraseña debe tener al menos 6 caracteres.</small>
+          </div>
+        </div>
+
+        <div class="form-check form-switch mt-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+          <label class="form-check-label" for="flexSwitchCheckDefault">
+            Recordar usuario
+          </label>
+        </div>
+
+        <div class="mt-1">
+          <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <hr />
+
+        <div class="form-group mt-3">
+          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">acceder</button>
+          <a href="#" class="mt-2 gap-2 text-decoration-none">
+            ¿No estas registrado?, apúntate aquí
+          </a>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

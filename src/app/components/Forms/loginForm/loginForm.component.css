@@ -20,12 +20,12 @@
 
 .colum-text h1 {
   font-family: monospace;
-  color: #b11212;
+  color: #304531;
   font-size: 25px;
 }
 
 .colum-text p {
-  color: #000;
+  color: #607062;
   font-family: 'vrcosd', monospace;
   font-size: 14px;
   text-align: justify !important;
@@ -49,28 +49,27 @@
 .colum-form a{
 
   font-size: 17px;
-  color: #b11212;
+  color: #78C47D;
 }
 
 .colum-form .btn-primary {
   font-family: 'vrcosd', monospace;
   font-size: 17px;
-  border-radius: 25px;
-  background-color: #b11212;
-  color: #fff;
+
+  background-color: #304531;
+  color: #69F072;
 }
 
-.colum-form .btn-outline-primary {
-  color: #b11212;
+.colum-form .text-danger small {
   font-size: 17px;
-  border-color: #b11212;
+  background-color: #78C47D;
+  border-radius: 5px;
+  padding: 3px;
+  color: #1B331C;
 }
 
-.btn-outline-primary:hover  {
-  color: #fff;
-  background-color: #b11212;
 
-}
+
 
 @media (max-width: 768px) {
   .colum-text, .colum-form {
