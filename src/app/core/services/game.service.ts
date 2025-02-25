@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IVideogame } from '../../model/Ivideogame.interface';
+import { IVideogame } from '../../shared/model/Ivideogame.interface';
 import { Observable, of } from 'rxjs';
-import { VIDEOGAME_DATA } from '../../model/videogame.datasource';
+import { VIDEOGAME_DATA } from '../../shared/model/videogame.datasource';
 
 @Injectable({
   providedIn: 'root'

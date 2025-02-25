@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IVideogame } from '../../../model/Ivideogame.interface';
+import { IVideogame } from '../../../shared/model/Ivideogame.interface';
 
 @Component({
   selector: 'app-card',
