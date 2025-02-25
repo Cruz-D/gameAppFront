@@ -1,18 +1,19 @@
-<div class="container-fluid">
-  <div class="row ">
-    <div class="container-card
-    col-12 col-sm-6 col-md-4 col-lg-3
+<div class="row">
+  <div
+    class="container-card col-12 col-sm-6
+     col-md-6 col-lg-3 col-xl-2
     d-flex justify-content-center mb-4 "
-    *ngFor="let game of paginatedGames">
-      <app-card [videogame]="game"></app-card>
-    </div>
+    *ngFor="let game of paginatedGames"
+  >
+    <app-card [videogame]="game"></app-card>
   </div>
 
   <app-paginator
-    class="paginator d-flex justify-content-center "
+    class="paginator d-flex justify-content-center"
     [totalItems]="totalItems"
     [itemsPerPage]="itemsPerPage"
     [currentPage]="currentPage"
-    (pageChange)="onPageChange($event)">
+    (pageChange)="onPageChange($event)"
+  >
   </app-paginator>
-
+</div>

@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'vrcosd';
+  src: url('/src/app/shared/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pixel';
+  src: url('/src/app/shared/fonts/pixeled/Pixeled.ttf') format('truetype');
+}
+
+/***************************************************************/
+/***************************************************************/
+.colum-text {
+  font-weight: bold;
+
+  margin-top: 20px;
+  padding: 20px;
+
+}
+
+.colum-text h1 {
+  font-family: monospace;
+  color: #b11212;
+  font-size: 25px;
+}
+
+.colum-text p {
+  color: #000;
+  font-family: 'vrcosd', monospace;
+  font-size: 14px;
+  text-align: justify !important;
+}
+
+.colum-form {
+  padding: 20px;
+}
+
+/***************************************************************/
+/***************************************************************/
+
+.colum-form {
+
+  margin-top: 20px;
+  border-radius: 10px;
+  font-family: 'vrcosd', monospace;
+  font-size: 17px;
+}
+
+.colum-form a{
+
+  font-size: 17px;
+  color: #b11212;
+}
+
+.colum-form .btn-primary {
+  font-family: 'vrcosd', monospace;
+  font-size: 17px;
+  border-radius: 25px;
+  background-color: #b11212;
+  color: #fff;
+}
+
+.colum-form .btn-outline-primary {
+  color: #b11212;
+  font-size: 17px;
+  border-color: #b11212;
+}
+
+.btn-outline-primary:hover  {
+  color: #fff;
+  background-color: #b11212;
+
+}
+
+@media (max-width: 768px) {
+  .colum-text, .colum-form {
+    padding: 10px;
+  }
+
+  .colum-text h1, .colum-form h1 {
+    font-size: 1.5rem;
+  }
+
+  .colum-text p, .colum-form p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .colum-text, .colum-form {
+    padding: 5px;
+  }
+
+  .colum-text h1, .colum-form h1 {
+    font-size: 1.2rem;
+  }
+
+  .colum-text p, .colum-form p {
+    font-size: 0.9rem;
+  }
+}
+
+
+

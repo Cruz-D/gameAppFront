@@ -82,3 +82,15 @@
   background-color: #19da39;
   border-color: #13e6d4;
 }
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; /* Asegurar que los elementos del navbar se apilen verticalmente en pantallas pequeñas */
+  }
+
+  .dropdown-menu {
+    position: static; /* Asegurar que el dropdown se muestre correctamente en pantallas pequeñas */
+    float: none;
+  }
+}
