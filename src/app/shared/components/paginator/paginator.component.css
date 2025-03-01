@@ -1,0 +1,16 @@
+.page-item{
+    cursor: pointer;
+    background-color: #304531;
+    color: #304531;
+    border: 2px solid #69F072;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.page-link{
+    color: #69F072;
+    font-family: monospace;
+    background-color: #304531;
+    border: 1px solid #304531;
+    border-radius: 5px;
+}

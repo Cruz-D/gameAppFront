@@ -1,11 +1,15 @@
 .custom-footer {
-  background-color: #343a40;
+  background-color: #304531;
+  font-family: monospace;
   color: #ffffff;
   width: 100%;
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   z-index: 1000;
+}
+.custom-footer p {
+  color: #69F072;
 }
 
 .footer-links {
@@ -18,7 +22,7 @@
 }
 
 .footer-links a {
-  color: #ffffff;
+  color: #69F072;
   text-decoration: none;
 }
 
@@ -26,10 +30,16 @@
   text-decoration: underline;
 }
 
+
 .social-icons a {
-  color: #ffffff;
-  margin-right: 1rem;
+  color: #69F072;
+  margin: 0 0.5rem;
   font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
 }
 
 .footer-bottom {

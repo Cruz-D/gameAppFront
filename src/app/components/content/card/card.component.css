@@ -1,5 +1,6 @@
 /* Estilos para la tarjeta */
 .card {
+  position: relative;
   border: 1px solid #ddd; /* Borde de la tarjeta */
   border-radius: 8px; /* Bordes redondeados */
   overflow: hidden; /* Ocultar contenido que se desborde */
@@ -15,6 +16,7 @@
 .card:hover {
   transform: scale(1.05); /* Escalar ligeramente la tarjeta */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
 }
 
 /* Estilos para el cuerpo de la tarjeta */
@@ -49,7 +51,6 @@
 
 /* Estilos para el cuerpo de la tarjeta al pasar el ratón */
 .card:hover .card-body {
-
   display: block;
 }
 
@@ -57,9 +58,6 @@
 /* Estilos para la imagen del cuerpo de la tarjeta al pasar el ratón */
 .card:hover .card-body-image {
   display: none; /* Mostrar la imagen */
-  opacity: 1; /* Opacidad completa */
-  transition: opacity 0.3s linear; /* Transición suave para la opacidad */
-
 }
 
 /* Estilos para la imagen de la tarjeta */

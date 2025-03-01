@@ -3,25 +3,24 @@
 /***************************************************************/
 .colum-text {
   font-weight: bold;
-
   margin-top: 20px;
-  padding: 20px;
-
+  padding: 2rem;
+  background-color: #304531;
+  box-shadow: 0 0 10px #000000;
 }
 
 .colum-text h1 {
   font-family: monospace;
-  color: #304531;
+  color: #69F072;
   font-size: 25px;
 }
 
 .colum-text p {
-  color: #607062;
-  font-family: 'vrcosd', monospace;
+  color: #69F072;
+  font-family:  monospace;
   font-size: 14px;
   text-align: justify !important;
 }
-
 .colum-form {
   padding: 20px;
 }
@@ -30,11 +29,13 @@
 /***************************************************************/
 
 .colum-form {
-
+  color: #69F072;
   margin-top: 20px;
   border-radius: 10px;
   font-family: 'vrcosd', monospace;
   font-size: 17px;
+  background-color: #304531;
+  box-shadow: 0 0 10px #000000;
 }
 
 .colum-form a{
@@ -42,6 +43,24 @@
   font-size: 17px;
   color: #78C47D;
 }
+
+.colum-form input{
+
+  font-size: 17px;
+  background-color: #607062;
+  border-color: #607062;
+  color: #69F072;
+}
+
+.colum-form input::placeholder {
+  color: #69F072;
+}
+
+.colum-form input:focus {
+  background-color: #304531;
+  border-color: #69F072;
+}
+
 
 .colum-form .btn-primary {
   font-family: 'vrcosd', monospace;

@@ -1,0 +1,98 @@
+h1{
+  font-family: monospace;
+  color: #69F072;
+}
+
+/**********************************************************/
+/* Breacrumb */
+/**********************************************************/
+.breadcrumb{
+  background-color: #1B331C;/* Color de fondo */
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb li {
+  font-family: monospace;
+  color: #78C47D;/* Color del texto */
+}
+
+.breadcrumb-item a {
+  color: #69F072;/* Color del texto */
+}
+
+/**********************************************************/
+/* Accordion */
+/**********************************************************/
+.accordion-item {
+  font-family: monospace;
+  border-radius: 1;
+  border: 1px solid #304531; /* Borde de los items */
+  margin-bottom: 1rem; /* Espaciado entre items */
+}
+
+.accordion-button {
+  background-color: #304531; /* Fondo claro */
+  color: #69F072;/* Color del texto */
+  font-weight: bold; /* Texto en negrita */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+.accordion-button:hover {
+  background-color: #607062; /* Fondo más oscuro al pasar el ratón */
+  color: #78C47D; /* Color del texto al pasar el ratón */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #607062; /* Fondo más oscuro cuando está expandido */
+  color: #78C47D; /* Color del texto cuando está expandido */
+
+}
+
+.accordion-body {
+  background-color: #1B331C; /* Fondo blanco */
+  color: #69F072; /* Color del texto */
+  padding: 1rem; /* Relleno interno */
+  border-top: 1px solid #78C47D; /* Borde superior */
+}
+
+.accordion-header {
+  margin-bottom: 0; /* Sin margen inferior */
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra al enfocar */
+}
+
+.accordion-button::after {
+  filter: invert(1); /* Invertir el color del icono */
+}
+
+/* Estilos para el carrusel dentro del accordion */
+.carousel-inner img {
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .accordion-button {
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+  }
+
+  .accordion-body {
+    padding: 0.75rem; /* Reducir el padding en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  .accordion-button {
+    font-size: 0.8rem; /* Reducir aún más el tamaño de la fuente en pantallas muy pequeñas */
+  }
+
+  .accordion-body {
+    padding: 0.5rem; /* Reducir aún más el padding en pantallas muy pequeñas */
+
+  }
+}

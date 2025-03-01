@@ -1,5 +1,9 @@
 .container-fluid {
-
-
+  background: linear-gradient(rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 50%),
+  url('./assets/images/background2.jpg');
+  background-size: 100% 4px, cover;
 }
 
+h1, h2, p, a {
+  text-shadow: 0 0 5px #33ff33;
+}
