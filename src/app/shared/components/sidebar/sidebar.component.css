@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'vrcosd';
+  src: url('/src/app/shared/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('truetype');
+}
+
+.sidebar {
+  position: fixed;
+  top: 0; /* Ocupa desde arriba */
+  right: -260px;
+  width: 260px;
+  height: 100vh; /* Todo el alto de la ventana */
+  background-color: #304531;
+  color: #69F072;
+  font-family: 'vrcosd', monospace;
+  box-shadow: -2px 0 10px #000000;
+  transition: right 0.3s cubic-bezier(.4,0,.2,1);
+  z-index: 1050;
+}
+.sidebar-header {
+  font-family: 'vrcosd', monospace;
+  color: #69F072;
+  margin-top: 2.5rem;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  color: #69F072;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.username {
+  font-size: 1.3rem;
+  font-family: 'vrcosd', monospace;
+  color: #69F072;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-links li {
+  margin: 1rem 0;
+}
+
+.sidebar-links a {
+  color: #69F072;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'vrcosd', monospace;
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-links a i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.sidebar-links a:hover {
+  background-color: #789C7A;
+  color: #1B331C;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    height: auto;
+    box-shadow: none;
+  }
+}

@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/authService/auth.service';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [RouterModule, CommonModule]
+  imports: [RouterModule, CommonModule, SidebarComponent]
 })
 export class NavbarComponent implements OnInit {
+  isSidebarOpen = false;
 
   constructor(public authServices: AuthService) { }
 
@@ -31,6 +33,10 @@ export class NavbarComponent implements OnInit {
       // Redirige al usuario a la página de inicio de sesión
       window.location.href = '/login';
     }
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
 }

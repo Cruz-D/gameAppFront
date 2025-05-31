@@ -36,31 +36,28 @@ export class LoginFormComponent implements OnInit {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]]
-
     });
-
   }
-
   // ***************************************************************
-
   loginUser() {
 
     // Verifica si el formulario es valido
     if (this.loginForm.valid) {
-
       // Asigna los valores del formulario a la interfaz ILoginUser
       const loginData: ILoginUser = {
         usernameOrEmail: this.loginForm.value.email,
         password: this.loginForm.value.password
       };
-
       // Llama al servicio de autenticación usando la interfaz
       this.authService.login(loginData).subscribe(
 
-        // Si la respuesta es exitosa, guarda el token en una cookie
         response => {
-          document.cookie = `jwt=${response.token}; path=/; samesite=strict`;
+          // hacer cookie con el token JWT
+          document.cookie = `jwt=${response.accessToken}; path=/; samesite=strict`;
+
           console.log('Login successful', response);
+          // Redirige al usuario a la página principal después de iniciar sesión
+          window.location.href = '/';
         },
         error => {
           console.error('Login failed', error);
@@ -71,6 +68,4 @@ export class LoginFormComponent implements OnInit {
       console.error('Form is invalid');
     }
   }
-
-
 }
