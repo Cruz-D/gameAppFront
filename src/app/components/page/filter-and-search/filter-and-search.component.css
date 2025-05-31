@@ -1,0 +1,70 @@
+.row{
+  background-color: #1B331C;
+  border-color:#69F072;
+  border-style: solid;
+  margin: 10px;
+  padding: 10px;
+}
+/***********************************************************/
+/* Input */
+/***********************************************************/
+
+p{
+  color: #69F072;
+  font-family: monospace;
+}
+
+input{
+  font-size: 17px;
+  background-color: #607062;
+  border-color: #69F072;
+  color: #69F072;
+}
+
+input::placeholder {
+  color: #69F072;
+}
+
+input:focus {
+  background-color: #304531;
+  border-color: #69F072;
+}
+
+/***********************************************************/
+/* Select */
+/***********************************************************/
+
+select{
+  font-size: 17px;
+  background-color: #607062;
+  border-color: #69F072;
+  color: #69F072;
+  font-family: monospace;
+}
+
+select::placeholder {
+  color: #69F072;
+}
+
+select:focus {
+  background-color: #304531;
+  border-color: #69F072;
+}
+
+/***********************************************************/
+/* Button */
+/***********************************************************/
+
+button{
+  font-size: 17px;
+  background-color: #607062;
+  border-color: #69F072;
+  color: #69F072;
+}
+
+button:hover {
+  background-color: #304531;
+  border-color: #69F072;
+}
+
+/***********************************************************/
