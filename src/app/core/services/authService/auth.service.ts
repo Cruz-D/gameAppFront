@@ -7,11 +7,13 @@ import { ILoginUser } from '../../model/users/ILoginUser.interface';
   providedIn: 'root',
 })
 export class AuthService {
+
   private apiUrl = 'http://localhost:8080/api/Auth'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}
 
   login(user: ILoginUser): Observable<any> {
+
     return this.http.post(`${this.apiUrl}/login`, user);
   }
 
@@ -29,7 +31,6 @@ export class AuthService {
   }
 
   // Este metodo elimina el token JWT de las cookies
-
   logout(): void {
     document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'; // Elimina el token JWT
     window.location.href = '/login'; // Redirige al usuario a la página de inicio de sesión

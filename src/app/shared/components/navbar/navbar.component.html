@@ -96,14 +96,21 @@
         <li class="nav-item">
           <button
             class="sidebar-toggle-navbar d-flex align-items-center"
-            (click)="logout()"
-
+            (click)="toggleSidebar()"
+            [attr.aria-expanded]="isSidebarOpen"
           >
             <i class="fas fa-user me-2"></i>
-
+            <i
+              class="fas"
+              [ngClass]="{
+                'fa-chevron-right': !isSidebarOpen,
+                'fa-chevron-left': isSidebarOpen
+              }"
+            ></i>
           </button>
         </li>
       </ng-container>
     </ul>
   </div>
 </nav>
+<app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="toggleSidebar()"></app-sidebar>
