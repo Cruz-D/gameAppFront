@@ -1,9 +1,10 @@
+
 import { Routes } from '@angular/router';
 import { IndexComponent } from './components/page/Index/index.component';
 import { GameLibraryComponent } from './components/page/game-library/game-library.component';
 import { CardComponent } from './components/content/card/card.component';
-import { LoginFormComponent } from './components/Forms/loginForm/loginForm.component';
-import { RegisterFormComponent } from './components/Forms/registerForm/registerForm.component';
+import { LoginFormComponent } from './components/content/forms/loginForm/loginForm.component';
+import { RegisterFormComponent } from './components/content/forms/registerForm/registerForm.component';
 import { DetailsComponent } from './components/page/details/details.component';
 
 export const routes: Routes = [
