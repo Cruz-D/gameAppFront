@@ -1,8 +1,9 @@
 /* Navbar */
 .navbar {
   padding: 0.7rem 1.5rem;
-  background-color: #304531;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #1B331C;
+  border-color: #69F072;
+  border-style: solid;
 }
 
 /* Marca y Logo */

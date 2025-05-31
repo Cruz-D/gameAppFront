@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { IVideogame } from '../../shared/model/Ivideogame.interface';
-import { Observable, of } from 'rxjs';
-import { VIDEOGAME_DATA } from '../../shared/model/videogame.datasource';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IVideogame } from '../model/videogame/Ivideogame.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  constructor() { }
+  private apiUrl = 'https://localhost:7129/api/Videogames'; // URL de la API
+
+  constructor(private http: HttpClient) { }
 
   getGames(): Observable<IVideogame[]> {
-    return of(VIDEOGAME_DATA);
+    return this.http.get<IVideogame[]>(this.apiUrl); // Realiza el GET a la API
   }
 }
