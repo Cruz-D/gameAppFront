@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../../core/services/game.service';
-import { IVideogame } from '../../shared/model/Ivideogame.interface';
+import { GameService } from '../../../core/services/game.service';
+import { IVideogame } from '../../../core/model/videogame/Ivideogame.interface';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from '../../components/content/card/card.component';
-import { PaginatorComponent } from '../../shared/components/paginator/paginator.component';
+import { CardComponent } from '../../content/card/card.component';
+import { PaginatorComponent } from '../../../shared/components/paginator/paginator.component';
 
 @Component({
   selector: 'app-index',

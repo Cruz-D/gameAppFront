@@ -1,10 +1,10 @@
 /* Estilos para la tarjeta */
 .card {
   position: relative;
-  border: 1px solid #ddd; /* Borde de la tarjeta */
-  border-radius: 8px; /* Bordes redondeados */
+
   overflow: hidden; /* Ocultar contenido que se desborde */
   height: 100%; /* Altura completa */
+  width: 100%; /* Ancho completo */
   max-width: 35vh; /* Ancho máximo */
   max-height: fit-content ;
   padding: auto;

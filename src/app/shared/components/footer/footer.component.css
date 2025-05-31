@@ -1,7 +1,8 @@
 .custom-footer {
-  background-color: #304531;
+  background-color: #1B331C;
+  border-color: #69F072;
+  border-style: solid;
   font-family: monospace;
-  color: #ffffff;
   width: 100%;
   position: relative;
   bottom: 0;
