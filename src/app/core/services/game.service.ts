@@ -8,7 +8,7 @@ import { IVideogame } from '../model/videogame/Ivideogame.interface';
 })
 export class GameService {
 
-  private apiUrl = 'https://localhost:7129/api/Videogames'; // URL de la API
+  private apiUrl = 'http://localhost:8080/api/Videogames'; // URL de la API
 
   constructor(private http: HttpClient) { }
 
