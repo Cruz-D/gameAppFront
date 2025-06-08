@@ -3,9 +3,9 @@
     class="container-card col-12 col-sm-6
      col-md-6 col-lg-3 col-xl-2
     d-flex justify-content-center mb-4 "
-    *ngFor="let game of paginatedGames"
+    *ngFor="let product of paginatedProducts"
   >
-    <app-card [videogame]="game"></app-card>
+    <app-card [product]="product"></app-card>
   </div>
 
   <app-paginator

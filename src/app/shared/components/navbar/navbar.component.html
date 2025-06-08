@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark px-3">
   <!-- Logo y Nombre -->
   <a class="navbar-brand d-flex align-items-center" routerLink="/">
-    <i class="fas fa-gamepad me-2"></i> <span>Mi Aplicación</span>
+    <i class="fas fa-gamepad me-2"></i> <span>Gamehub</span>
   </a>
 
   <!-- Botón Toggle para móviles -->
@@ -28,53 +28,20 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/game-library"
-          ><i class="fas fa-newspaper"></i> Biblioteca</a
+          ><i class="fas fa-newspaper"></i> Productos</a
         >
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/details"
-          ><i class="fas fa-concierge-bell"></i> Servicios</a
-        >
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" routerLink="/contact"
           ><i class="fas fa-envelope"></i> Contacto</a
         >
       </li>
 
-      <!-- Dropdown -->
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about"
+          ><i class="fas fa-info-circle"></i> Acerca de</a
         >
-          <i class="fas fa-th-list"></i> Categorías
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li>
-            <a class="dropdown-item" routerLink="/category/action"
-              ><i class="fas fa-bolt"></i> Acción</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/category/adventure"
-              ><i class="fas fa-magic"></i> Aventura</a
-            >
-          </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="/category/more-options"
-              ><i class="fas fa-ellipsis-h"></i> Más opciones</a
-            >
-          </li>
-        </ul>
-      </li>
     </ul>
 
     <!-- Botones de usuario -->

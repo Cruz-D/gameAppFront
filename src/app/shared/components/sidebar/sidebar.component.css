@@ -5,34 +5,36 @@
 
 .sidebar {
   position: fixed;
-  top: 0; /* Ocupa desde arriba */
+  top: 0;
   right: -260px;
   width: 260px;
-  height: 100vh; /* Todo el alto de la ventana */
-  background-color: #304531;
-  color: #69F072;
+  height: 100vh;
+  background-color: var(--muted-green);
+  color: var(--primary-green);
   font-family: 'vrcosd', monospace;
-  box-shadow: -2px 0 10px #000000;
+  box-shadow: var(--shadow, -2px 0 10px #000000);
   transition: right 0.3s cubic-bezier(.4,0,.2,1);
   z-index: 1050;
-}
-.sidebar-header {
-  font-family: 'vrcosd', monospace;
-  color: #69F072;
-  margin-top: 2.5rem;
 }
 
 .sidebar.open {
   right: 0;
 }
 
+.sidebar-header {
+  color: var(--primary-green);
+  font-family: 'vrcosd', monospace;
+  margin-top: 2.5rem;
+  padding: var(--spacing-lg, 2rem) var(--spacing-md, 1rem) var(--spacing-md, 1rem);
+}
+
 .close-btn {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: transparent;
+  background: none;
   border: none;
-  color: #69F072;
+  color: var(--primary-green);
   font-size: 1.3rem;
   cursor: pointer;
 }
@@ -54,14 +56,14 @@
 }
 
 .sidebar-links a {
-  color: #69F072;
+  color: var(--primary-green);
   text-decoration: none;
   font-size: 1.1rem;
   font-family: 'vrcosd', monospace;
   display: flex;
   align-items: center;
-  padding: 0.7rem 1.5rem;
-  border-radius: 10px;
+  padding: var(--spacing-md, 1rem) 1.5rem;
+  border-radius: var(--border-radius, 10px);
   transition: background 0.3s, color 0.3s;
 }
 
@@ -71,7 +73,7 @@
 }
 
 .sidebar-links a:hover {
-  background-color: #789C7A;
+  background-color: var(--light-muted-green, #789C7A);
   color: #1B331C;
 }
 

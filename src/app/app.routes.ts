@@ -4,7 +4,7 @@ import { IndexComponent } from './components/page/Index/index.component';
 import { GameLibraryComponent } from './components/page/game-library/game-library.component';
 import { CardComponent } from './components/content/card/card.component';
 import { LoginFormComponent } from './components/content/forms/loginForm/loginForm.component';
-import { RegisterFormComponent } from './components/content/forms/registerForm/registerForm.component';
+import { RegisterComponent } from './components/content/forms/registerForm/registerForm.component';
 import { DetailsComponent } from './components/page/details/details.component';
 
 export const routes: Routes = [
@@ -13,7 +13,8 @@ export const routes: Routes = [
   // Agrega más rutas aquí según sea necesario
   { path: 'game-library', component: GameLibraryComponent, data: { title: 'game-library' } },
   { path: 'login', component: LoginFormComponent, data: { title: 'login' } },
-  { path: 'register', component: RegisterFormComponent, data: { title: 'register' } },
-  { path: 'details', component: DetailsComponent, data: { title: 'details' } }
+  { path: 'register', component: RegisterComponent, data: { title: 'register' } },
+  { path: 'details', component: DetailsComponent, data: { title: 'details' } },
+  { path: 'details/:id', component: DetailsComponent, data: { title: 'details' } }
 
 ];

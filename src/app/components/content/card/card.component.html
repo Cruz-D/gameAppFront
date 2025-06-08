@@ -1,70 +1,76 @@
 <div class="card" style="width: 25rem;">
 
   <div class="card-body-image">
-    <img class="card-img-top" src="{{ videogame.image }}" alt="Card image cap">
+    <img class="card-img-top" [src]="product.images[0]?.url" [alt]="product.images[0]?.description || product.name">
   </div>
   <div class="card-body">
 
-    <h5 class="card-title">{{ videogame.title }}</h5>
+    <h5 class="card-title">{{ product.name }}</h5>
     <hr>
     <div class="row mt-2">
-      <div class="col-6">
-        <strong>Género:</strong>
-      </div>
+      <div class="col-6"><strong>Categoría:</strong></div>
+      <div class="col-6 card-text">{{ product.productCategory }}</div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6"><strong>Descripción:</strong></div>
+      <div class="col-6 card-text">{{ product.description }}</div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6"><strong>Precio:</strong></div>
       <div class="col-6 card-text">
-        {{ videogame.genre }}
+        {{ product.price.value | currency:product.price.currency }}
+        <span *ngIf="product.price.discount">(-{{ product.price.discount }}%)</span>
       </div>
     </div>
     <div class="row mt-2">
-      <div class="col-6">
-        <strong>Plataforma:</strong>
-      </div>
+      <div class="col-6"><strong>Stock:</strong></div>
       <div class="col-6 card-text">
-        {{ videogame.platform }}
+        {{ product.stock.quantity }}
+        <span *ngIf="product.stock.available" class="text-success">Disponible</span>
+        <span *ngIf="!product.stock.available" class="text-danger">No disponible</span>
       </div>
     </div>
     <div class="row mt-2">
-      <div class="col-6">
-        <strong>Calificación:</strong>
-      </div>
-      <div class="col-6 card-text">
-        {{ videogame.rating }}
-      </div>
+      <div class="col-6"><strong>Plataforma:</strong></div>
+      <div class="col-6 card-text">{{ product.details.platform }}</div>
     </div>
     <div class="row mt-2">
-      <div class="col-6">
-        <strong>Publicador:</strong>
-      </div>
-      <div class="col-6 card-text">
-        {{ videogame.publisher }}
-      </div>
+      <div class="col-6"><strong>Marca:</strong></div>
+      <div class="col-6 card-text">{{ product.details.brand }}</div>
     </div>
     <div class="row mt-2">
-      <div class="col-6">
-        <strong>Fecha de lanzamiento:</strong>
-      </div>
-      <div class="col-6 card-text">
-        {{ videogame.release }}
-      </div>
+      <div class="col-6"><strong>Condición:</strong></div>
+      <div class="col-6 card-text">{{ product.details.condition }}</div>
     </div>
     <div class="row mt-2">
-      <div class="col-6">
-        <strong>Estado:</strong>
-      </div>
+      <div class="col-6"><strong>Año lanzamiento:</strong></div>
+      <div class="col-6 card-text">{{ product.details.releaseYear }}</div>
+    </div>
+    <div class="row mt-2" *ngIf="product.specifications.videogame">
+      <div class="col-6"><strong>Género:</strong></div>
+      <div class="col-6 card-text">{{ product.specifications.videogame.genre }}</div>
+    </div>
+    <div class="row mt-2" *ngIf="product.specifications.videogame">
+      <div class="col-6"><strong>Rating:</strong></div>
+      <div class="col-6 card-text">{{ product.specifications.videogame.rating }}</div>
+    </div>
+    <div class="row mt-2" *ngIf="product.tags?.length">
+      <div class="col-6"><strong>Tags:</strong></div>
       <div class="col-6 card-text">
-        {{ videogame.status }}
+        <span *ngFor="let tag of product.tags; let last = last">
+          {{ tag }}<span *ngIf="!last">, </span>
+        </span>
       </div>
     </div>
-
     <div class="row mt-2">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="col-6 btn btn-primary ">Editar</button>
-        <button type="button" class="col-6 btn btn-danger">Eliminar</button>
+        <button type="button"
+        [routerLink]="['/details', product.id]"
+        routerLinkActive="router-link-active"
+        class="col-6 btn btn-primary">
+  Detalles
+</button>
       </div>
-
-
-
-
+    </div>
   </div>
-
 </div>
