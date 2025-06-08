@@ -1,0 +1,151 @@
+<div class="container-fluid">
+  <!-- Formulario de filtrado -->
+  <form
+    class="bg-dark rounded p-3 mb-4 filter-container"
+    (ngSubmit)="applyFilters()"
+  >
+    <div class="row align-items-end g-2">
+      <!-- Categoría de Producto -->
+      <div class="col-md-2 col-6">
+        <select
+          class="form-select form-select-sm"
+          [(ngModel)]="filters.productCategory"
+          name="productCategory"
+          (change)="applyFilters()"
+        >
+          <option value="">Categoría de Producto</option>
+          <option *ngFor="let category of productCategories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+      <!-- Plataforma -->
+      <div class="col-md-2 col-6">
+        <select
+          class="form-select form-select-sm"
+          [(ngModel)]="filters.platform"
+          name="platform"
+          (change)="applyFilters()"
+        >
+          <option value="">Plataforma</option>
+          <option *ngFor="let platform of platforms" [value]="platform">
+            {{ platform }}
+          </option>
+        </select>
+      </div>
+      <!-- Marca -->
+      <div class="col-md-2 col-6">
+        <select
+          class="form-select form-select-sm"
+          [(ngModel)]="filters.brand"
+          name="brand"
+          (change)="applyFilters()"
+        >
+          <option value="">Marca</option>
+          <option *ngFor="let brand of brands" [value]="brand">
+            {{ brand }}
+          </option>
+        </select>
+      </div>
+      <!-- Año -->
+      <div class="col-md-2 col-">
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          [(ngModel)]="filters.year"
+          name="year"
+          min="1980"
+          max="2025"
+          placeholder="Año"
+          (input)="applyFilters()"
+        />
+      </div>
+      <!-- Rango de precio -->
+      <div class="col-md-2 col-6 d-flex gap-1">
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          [(ngModel)]="filters.priceMin"
+          name="priceMin"
+          placeholder="€ Min"
+          (input)="applyFilters()"
+        />
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          [(ngModel)]="filters.priceMax"
+          name="priceMax"
+          placeholder="€ Max"
+          (input)="applyFilters()"
+        />
+      </div>
+      <!-- Tags -->
+      <div class="col-md-1 col-6">
+        <select
+          class="form-select form-select-sm"
+          [(ngModel)]="filters.tag"
+          name="tag"
+          (change)="applyFilters()"
+        >
+          <option value="">Tags</option>
+          <option *ngFor="let tag of tags" [value]="tag">{{ tag }}</option>
+        </select>
+      </div>
+      <!-- Solo ofertas y solo en stock -->
+      <div class="col-auto d-flex align-items-center">
+        <div class="form-check me-2">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="discountOnly"
+            [(ngModel)]="filters.discountOnly"
+            name="discountOnly"
+            (change)="applyFilters()"
+          />
+          <label
+            class="form-check-label small"
+            for="discountOnly"
+            title="Solo ofertas"
+            >Oferta</label
+          >
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="stockOnly"
+            [(ngModel)]="filters.stockOnly"
+            name="stockOnly"
+            (change)="applyFilters()"
+          />
+          <label
+            class="form-check-label small"
+            for="stockOnly"
+            title="Solo en stock"
+            >Stock</label
+          >
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Cuadrícula de productos -->
+  <div class="row mt-4 product-grid">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch mb-4"
+      *ngFor="let product of paginatedProducts"
+    >
+      <app-card [product]="product" class="w-100"></app-card>
+    </div>
+  </div>
+</div>
+
+<app-paginator
+  class="paginator d-flex justify-content-center"
+  [totalItems]="totalItems"
+  [itemsPerPage]="itemsPerPage"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)"
+>
+  >
+</app-paginator>

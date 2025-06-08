@@ -1,19 +1,19 @@
 /* Navbar */
 .navbar {
-  padding: 0.7rem 1.5rem;
-  background-color: #1B331C;
-  border-color: #69F072;
-  border-style: solid;
+  background-color: var(--dark-green);
+  border-bottom: 2px solid var(--primary-green);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
 }
 
 /* Marca y Logo */
 .navbar-brand {
+  font-family: 'pixel', 'vrcosd', monospace;
   font-size: 1.7rem;
-  font-weight: bold;
-  color: #69F072 !important;
+  color: var(--primary-green);
   display: flex;
   align-items: center;
-  font-family: monospace;
 }
 
 .navbar-brand i {
@@ -23,38 +23,30 @@
 
 /* Links de Navegación */
 .nav-link {
-  color: #69F072 !important;
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-  border-radius: 10px;
-  font-family: monospace;
+  color: var(--primary-green);
+  font-family: 'vrcosd', monospace;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #69F072 !important;
-  background-color: #789C7A;
+  background-color: var(--light-muted-green);
 }
-
 /* Dropdown */
 .dropdown-menu {
-  background-color: #e41212;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--muted-green);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
 }
 
 .dropdown-item {
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: var(--primary-green);
+  padding: var(--spacing-sm) var(--spacing-md);
 }
 
 .dropdown-item:hover {
-  background-color: #ffffff;
-  color: #e41212;
-  border-radius: 5px;
+  background-color: var(--hover-green);
 }
 
 /* Botón de Toggle (Responsive) */

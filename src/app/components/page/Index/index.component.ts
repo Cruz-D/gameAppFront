@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../../../core/services/game.service';
-import { IVideogame } from '../../../core/model/videogame/Ivideogame.interface';
+import { ProductService } from '../../../core/services/productService/product.service';
+import { Product } from '../../../core/model/product/Iproduct.Interface';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from '../../content/card/card.component';
 import { PaginatorComponent } from '../../../shared/components/paginator/paginator.component';
@@ -13,18 +13,18 @@ import { PaginatorComponent } from '../../../shared/components/paginator/paginat
   imports: [CommonModule, CardComponent, PaginatorComponent]
 })
 export class IndexComponent implements OnInit {
-  games: IVideogame[] = []; // Array para almacenar todos los videojuegos
-  paginatedGames: IVideogame[] = []; // Array para almacenar los videojuegos paginados
+  product: Product[] = []; // Array para almacenar todos los videojuegos
+  paginatedProducts: Product[] = []; // Array para almacenar los videojuegos paginados
   totalItems: number = 0; // Número total de videojuegos
   itemsPerPage: number = 8; // Número de videojuegos por página
   currentPage: number = 1; // Página actual
 
-  constructor(private gameService: GameService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     // Obtener los videojuegos del servicio y actualizar los datos
-    this.gameService.getGames().subscribe((data: IVideogame[]) => {
-      this.games = data; // Almacenar todos los videojuegos
+    this.productService.getAllProducts().subscribe((data: Product[]) => {
+      this.product = data; // Almacenar todos los videojuegos
       this.totalItems = data.length; // Actualizar el número total de videojuegos
       this.updatePaginatedGames(); // Actualizar los videojuegos paginados
     });
@@ -34,7 +34,7 @@ export class IndexComponent implements OnInit {
   updatePaginatedGames(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage; // Índice de inicio de la página actual
     const endIndex = startIndex + this.itemsPerPage; // Índice de fin de la página actual
-    this.paginatedGames = this.games.slice(startIndex, endIndex); // Obtener los videojuegos para la página actual
+    this.paginatedProducts = this.product.slice(startIndex, endIndex); // Obtener los videojuegos para la página actual
   }
 
   // Manejar el cambio de página

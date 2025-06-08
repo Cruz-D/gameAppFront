@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ILoginUser } from '../../model/users/ILoginUser.interface';
+import { ILoginUser } from '../../model/user/ILoginUser.interface';
+import { IRegisterUser } from '../../model/user/IRegisterUser.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/api/Auth'; // Replace with your API URL
+  private apiUrl = 'https://localhost:32773/api/Auth'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}
 
   login(user: ILoginUser): Observable<any> {
 
     return this.http.post(`${this.apiUrl}/login`, user);
+  }
+
+  register(user: IRegisterUser): Observable<any> {
+
+    return this.http.post(`${this.apiUrl}/register`, user);
   }
 
   // Este metodo obtiene el token JWT de las cookies

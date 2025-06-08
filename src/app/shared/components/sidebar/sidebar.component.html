@@ -9,10 +9,8 @@
   </div>
   <nav>
     <ul class="sidebar-links">
-      <li><a routerLink="/profile"><i class="fas fa-user"></i> Perfil</a></li>
-      <li><a routerLink="/my-games"><i class="fas fa-gamepad"></i> Mis Juegos</a></li>
-      <li><a routerLink="/settings"><i class="fas fa-cog"></i> Configuración</a></li>
-      <li><a routerLink="/support"><i class="fas fa-life-ring"></i> Soporte</a></li>
+      <li><a [routerLink]="['/profile', userId]"><i class="fas fa-user"></i> Perfil</a></li>
+      <li><a routerLink="/my-games"><i class="fas fa-gamepad"></i> Mis pedidos</a></li>
       <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
     </ul>
   </nav>

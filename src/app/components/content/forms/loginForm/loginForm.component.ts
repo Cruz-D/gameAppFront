@@ -1,71 +1,67 @@
-
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../../../core/services/authService/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ILoginUser } from '../../../../core/model/users/ILoginUser.interface';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { ILoginUser } from '../../../../core/model/user/ILoginUser.interface';
+import { AuthService } from '../../../../core/services/authService/auth.service';
 
 @Component({
   selector: 'app-loginForm',
-  imports: [ReactiveFormsModule, CommonModule],
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './loginForm.component.html',
   styleUrls: ['./loginForm.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  loginForm: FormGroup;
+  showPassword: boolean = false;
+  isSubmitting: boolean = false;
 
-  // ***************************************************************
-  // * Variables Section
-  // ***************************************************************
-
-  // variable que almacena el formulario de login
-  loginForm!: FormGroup;
-
-  ILoginUser: ILoginUser = {
-    usernameOrEmail: '',
-    password: ''
-  };
-
-  // ***************************************************************
-
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
-
-  ngOnInit() {
-
-    // Inicializacion y validacion de los campos del formulario
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      usernameOrEmail: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      rememberMe: [false]
     });
   }
-  // ***************************************************************
-  loginUser() {
 
-    // Verifica si el formulario es valido
+  ngOnInit(): void {}
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  loginUser(): void {
     if (this.loginForm.valid) {
-      // Asigna los valores del formulario a la interfaz ILoginUser
+      this.isSubmitting = true;
       const loginData: ILoginUser = {
-        usernameOrEmail: this.loginForm.value.email,
+        usernameOrEmail: this.loginForm.value.usernameOrEmail,
         password: this.loginForm.value.password
       };
-      // Llama al servicio de autenticación usando la interfaz
-      this.authService.login(loginData).subscribe(
 
-        response => {
-          // hacer cookie con el token JWT
-          document.cookie = `jwt=${response.accessToken}; path=/; samesite=strict`;
+      this.authService.login(loginData).subscribe({
+        next: (response) => {
+          // Almacenar el token JWT en una cookie segura
+          document.cookie = `jwt=${encodeURIComponent(response.accessToken)}; path=/; samesite=strict; secure`;
 
           console.log('Login successful', response);
-          // Redirige al usuario a la página principal después de iniciar sesión
+
+          // Redirigir a la página principal
           window.location.href = '/';
+          this.isSubmitting = false;
         },
-        error => {
+        error: (error) => {
           console.error('Login failed', error);
+          this.isSubmitting = false;
         }
-      );
+      });
     } else {
-      // Si no es valido, imprime un mensaje de error en la consola
       console.error('Form is invalid');
+      this.loginForm.markAllAsTouched();
     }
   }
 }

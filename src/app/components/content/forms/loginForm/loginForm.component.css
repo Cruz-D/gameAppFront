@@ -1,3 +1,4 @@
+/* Importar fuentes */
 @font-face {
   font-family: 'vrcosd';
   src: url('/src/app/shared/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('truetype');
@@ -8,90 +9,169 @@
   src: url('/src/app/shared/fonts/pixeled/Pixeled.ttf') format('truetype');
 }
 
-/***************************************************************/
-/***************************************************************/
+/* Variables CSS */
+:root {
+  --primary-green: #69F072;
+  --dark-green: #1B331C;
+  --medium-green: #78C47D;
+  --muted-green: #304531;
+  --hover-green: #607062;
+  --light-muted-green: #789C7A;
+  --amber: #FFB700;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --border-radius: 0.5rem;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Fondo sin efecto CRT */
+.container-fluid {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-green);
+}
+
+/* Estilo para la sección de texto */
 .colum-text {
+  font-family: 'vrcosd', monospace;
   font-weight: bold;
-  margin-top: 20px;
-  padding: 2rem;
-  background-color: #304531;
-  box-shadow: 0 0 10px #000000;
+  margin: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: var(--dark-green);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
 }
 
 .colum-text h1 {
-  font-family: monospace;
-  color: #69F072;
-  font-size: 25px;
+  font-family: 'pixel', 'vrcosd', monospace;
+  color: var(--primary-green);
+  font-size: 1.8rem;
 }
 
 .colum-text p {
-  color: #69F072;
-  font-family: 'vrcosd', monospace;
-  font-size: 14px;
-  text-align: justify !important;
+  color: var(--primary-green);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
 }
 
+/* Estilo para la sección del formulario */
 .colum-form {
-  padding: 20px;
-}
-
-/***************************************************************/
-/***************************************************************/
-
-.colum-form {
-
-  margin-top: 20px;
+  margin: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  background-color: var(--dark-green);
+  color: var(--primary-green);
   font-family: 'vrcosd', monospace;
-  color: #69F072;
-  font-size: 17px;
-  background-color: #304531;
-  box-shadow: 0 0 10px #000000;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
 }
 
-.colum-form a{
-
-  font-size: 17px;
-  color: #78C47D;
+.colum-form h1 {
+  font-family: 'pixel', 'vrcosd', monospace;
+  margin-bottom: var(--spacing-md);
 }
 
-.colum-form input{
-
-  font-size: 17px;
-  background-color: #607062;
-  border-color: #607062;
-  color: #69F072;
+.colum-form a {
+  color: var(--amber);
+  text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
-.colum-form input::placeholder {
-  color: #69F072;
+.colum-form a:hover {
+  color: var(--light-muted-green);
 }
 
-.colum-form input:focus {
-  background-color: #304531;
-  border-color: #69F072;
+.colum-form .form-control,
+.colum-form .form-select {
+  background-color: var(--muted-green);
+  border: 1px solid var(--muted-green);
+  color: var(--primary-green);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.colum-form .form-control:focus,
+.colum-form .form-select:focus {
+  background-color: var(--dark-green);
+  border-color: var(--primary-green);
+  outline: none;
+}
+
+.colum-form .form-control::placeholder {
+  color: var(--medium-green);
+  opacity: 0.7;
 }
 
 .colum-form .btn-primary {
+  font-family: 'pixel', 'vrcosd', monospace;
+  background-color: var(--primary-green);
+  border: 1px solid var(--primary-green);
+  color: var(--dark-green);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.colum-form .btn-primary:hover {
+  background-color: var(--light-muted-green);
+  transform: translateY(-2px);
+}
+
+.colum-form .btn-primary:disabled {
+  background-color: var(--hover-green);
+  border-color: var(--hover-green);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.colum-form .invalid-feedback {
   font-family: 'vrcosd', monospace;
-  font-size: 17px;
-  background-color: #304531;
-  color: #69F072;
+  font-size: 0.9rem;
+  background-color: var(--medium-green);
+  color: var(--dark-green);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  display: inline-block;
+  animation: fadeIn 0.3s ease;
 }
 
-.colum-form .text-danger small {
-  font-size: 17px;
-  background-color: #78C47D;
-  border-radius: 5px;
-  padding: 3px;
-  color: #1B331C;
+/* Estilo para el ícono de visibilidad de contraseña */
+.colum-form .btn-link {
+  color: var(--primary-green);
+  transition: color 0.3s ease;
 }
 
+.colum-form .btn-link:hover {
+  color: var(--light-muted-green);
+}
 
+/* Estilo para el check de recordar usuario */
+.colum-form .form-check-input {
+  background-color: var(--muted-green);
+  border-color: var(--primary-green);
+}
 
+.colum-form .form-check-input:checked {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+}
 
-@media (max-width: 768px) {
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media queries para diseño responsivo */
+@media (max-width: 767.98px) {
   .colum-text, .colum-form {
-    padding: 10px;
+    margin: var(--spacing-sm);
+    padding: var(--spacing-md);
   }
 
   .colum-text h1, .colum-form h1 {
@@ -99,23 +179,15 @@
   }
 
   .colum-text p, .colum-form p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .colum-text, .colum-form {
-    padding: 5px;
-  }
-
-  .colum-text h1, .colum-form h1 {
-    font-size: 1.2rem;
-  }
-
-  .colum-text p, .colum-form p {
     font-size: 0.9rem;
   }
+
+  .colum-form {
+    font-size: 1rem;
+  }
+
+  .colum-form .btn-primary {
+    font-size: 1rem;
+    padding: var(--spacing-sm);
+  }
 }
-
-
-
