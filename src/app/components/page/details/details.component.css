@@ -6,55 +6,74 @@ h1{
 /**********************************************************/
 /* Breacrumb */
 /**********************************************************/
-.breadcrumb{
-  background-color: #1B331C;/* Color de fondo */
-  border-radius: 0.25rem;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
+.breadcrumb {
+  background-color: var(--dark-green);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-sm);
 }
 
 .breadcrumb li {
-  font-family: monospace;
-  color: #78C47D;/* Color del texto */
+  font-family: 'vrcosd', monospace;
+  color: var(--medium-green);
 }
 
 .breadcrumb-item a {
-  color: #69F072;/* Color del texto */
+  color: var(--primary-green);
+  transition: color 0.3s ease;
 }
 
+.breadcrumb-item a:hover {
+  color: var(--light-muted-green);
+  text-decoration: underline;
+}
 /**********************************************************/
 /* Accordion */
 /**********************************************************/
 .accordion-item {
-  font-family: monospace;
-  border-radius: 1;
-  border: 1px solid #304531; /* Borde de los items */
-  margin-bottom: 1rem; /* Espaciado entre items */
+  font-family: 'vrcosd', monospace;
+  border: 1px solid var(--muted-green);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  overflow: hidden;
 }
 
 .accordion-button {
-  background-color: #304531; /* Fondo claro */
-  color: #69F072;/* Color del texto */
-  font-weight: bold; /* Texto en negrita */
-  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+  background-color: var(--muted-green);
+  color: var(--primary-green);
+  font-weight: bold;
+  padding: var(--spacing-md);
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .accordion-button:hover {
-  background-color: #607062; /* Fondo más oscuro al pasar el ratón */
-  color: #78C47D; /* Color del texto al pasar el ratón */
+  background-color: var(--hover-green);
+  color: var(--light-muted-green);
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #607062; /* Fondo más oscuro cuando está expandido */
-  color: #78C47D; /* Color del texto cuando está expandido */
+  background-color: var(--hover-green);
+  color: var(--light-muted-green);
+}
 
+
+.accordion-button:focus {
+  outline: none;
+  box-shadow: var(--crt-glow);
 }
 
 .accordion-body {
-  background-color: #1B331C; /* Fondo blanco */
-  color: #69F072; /* Color del texto */
-  padding: 1rem; /* Relleno interno */
-  border-top: 1px solid #78C47D; /* Borde superior */
+  background-color: var(--dark-green);
+  color: var(--primary-green);
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--medium-green);
+  transition: max-height 0.3s ease;
 }
 
 .accordion-header {
@@ -78,11 +97,10 @@ h1{
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .accordion-button {
-    font-size: 0.9rem; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+    font-size: 0.9rem;
   }
-
   .accordion-body {
-    padding: 0.75rem; /* Reducir el padding en pantallas pequeñas */
+    padding: var(--spacing-sm);
   }
 }
 

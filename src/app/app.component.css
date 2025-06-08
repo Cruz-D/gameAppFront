@@ -1,9 +1,175 @@
-.container-fluid {
-  background: linear-gradient(rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 50%),
-  url('./assets/images/background2.jpg');
-  background-size: 100% 4px, cover;
+/* Importar fuentes */
+@font-face {
+  font-family: 'vrcosd';
+  src: url('/src/app/shared/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('truetype');
 }
 
-h1, h2, p, a {
-  text-shadow: 0 0 5px #33ff33;
+@font-face {
+  font-family: 'pixel';
+  src: url('/src/app/shared/fonts/pixeled/Pixeled.ttf') format('truetype');
+}
+
+/* Variables CSS */
+:root {
+  --crt-green: #69F072;
+  --crt-dark-green: #1B331C;
+  --crt-mid-green: #607062;
+  --crt-light-green: #78C47D;
+  --crt-amber: #FFB700;
+  --crt-shadow: rgba(0, 0, 0, 0.5);
+  --crt-glow: 0 0 8px rgba(105, 240, 114, 0.5);
+}
+
+/* Estilo base */
+body {
+  margin: 0;
+  font-family: 'vrcosd', 'Courier New', monospace;
+  color: var(--crt-green);
+  background-color: var(--crt-dark-green);
+}
+
+.container-fluid {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-size: 100% 4px, cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Efecto de resplandor CRT */
+.container-fluid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(105, 240, 114, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Encabezado */
+header {
+  background-color: var(--crt-dark-green);
+  padding: 1rem 2rem;
+  box-shadow: var(--crt-shadow), var(--crt-glow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-family: 'pixel', 'vrcosd', monospace;
+  font-size: 1.8rem;
+  color: var(--crt-green);
+  text-shadow: var(--crt-glow);
+  animation: crt-flicker 4s infinite;
+}
+
+.navbar-nav .nav-link {
+  color: var(--crt-green);
+  font-family: 'vrcosd', monospace;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--crt-amber);
+  text-shadow: var(--crt-glow);
+}
+
+.navbar-toggler {
+  border-color: var(--crt-green);
+  color: var(--crt-green);
+}
+
+/* Contenedor principal */
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Pie de página */
+footer {
+  background-color: var(--crt-dark-green);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--crt-shadow), var(--crt-glow);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--crt-light-green);
+}
+
+footer a {
+  color: var(--crt-amber);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--crt-green);
+}
+
+/* Estilos para texto */
+h1, h2 {
+  font-family: 'pixel', 'vrcosd', monospace;
+  color: var(--crt-green);
+  text-shadow: var(--crt-glow);
+  animation: crt-flicker 4s infinite;
+}
+
+p, a {
+  font-family: 'vrcosd', 'Courier New', monospace;
+  color: var(--crt-green);
+  text-shadow: 0 0 3px rgba(105, 240, 114, 0.3);
+}
+
+/* Animación CRT */
+@keyframes crt-flicker {
+  0% { opacity: 1; }
+  2% { opacity: 0.95; }
+  4% { opacity: 1; }
+}
+
+/* Media queries */
+@media (max-width: 767.98px) {
+  .container-fluid {
+    background-size: 100% 2px, cover;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  p, a {
+    font-size: 0.9rem;
+  }
 }

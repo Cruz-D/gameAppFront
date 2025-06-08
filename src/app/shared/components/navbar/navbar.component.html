@@ -1,59 +1,83 @@
 <nav class="navbar navbar-expand-lg navbar-dark px-3">
   <!-- Logo y Nombre -->
   <a class="navbar-brand d-flex align-items-center" routerLink="/">
-    <i class="fas fa-gamepad me-2"></i> <span>Mi Aplicación</span>
+    <i class="fas fa-gamepad me-2"></i> <span>Gamehub</span>
   </a>
 
   <!-- Botón Toggle para móviles -->
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <!-- Contenido del Navbar -->
   <div class="collapse navbar-collapse" id="navbarNav">
-
     <!-- Menú de navegación -->
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i> Inicio</a>
+        <a class="nav-link" routerLink="/home"
+          ><i class="fas fa-home"></i> Inicio</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/game-library"><i class="fas fa-newspaper"></i> Biblioteca</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/details"><i class="fas fa-concierge-bell"></i> Servicios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact"><i class="fas fa-envelope"></i> Contacto</a>
+        <a class="nav-link" routerLink="/productos"
+          ><i class="fas fa-newspaper"></i> Productos</a
+        >
       </li>
 
-      <!-- Dropdown -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <i class="fas fa-th-list"></i> Categorías
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" routerLink="/category/action"><i class="fas fa-bolt"></i> Acción</a></li>
-          <li><a class="dropdown-item" routerLink="/category/adventure"><i class="fas fa-magic"></i> Aventura</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" routerLink="/category/more-options"><i class="fas fa-ellipsis-h"></i> Más opciones</a></li>
-        </ul>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact"
+          ><i class="fas fa-envelope"></i> Contacto</a
+        >
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about"
+          ><i class="fas fa-info-circle"></i> Acerca de</a
+        >
     </ul>
 
     <!-- Botones de usuario -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login"><i class="fas fa-user"></i> Iniciar Sesión </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/register">Registrarse</a>
-      </li>
-    </ul>
 
+    <ul class="navbar-nav ms-auto align-items-center">
+      <ng-container *ngIf="!authServices.isLoggedIn()">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login"
+              ><i class="fas fa-user"></i> Iniciar Sesión
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Registrarse</a>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="authServices.isLoggedIn()">
+        <li class="nav-item">
+          <button
+            class="sidebar-toggle-navbar d-flex align-items-center"
+            (click)="toggleSidebar()"
+            [attr.aria-expanded]="isSidebarOpen"
+          >
+            <i class="fas fa-user me-2"></i>
+            <i
+              class="fas"
+              [ngClass]="{
+                'fa-chevron-right': !isSidebarOpen,
+                'fa-chevron-left': isSidebarOpen
+              }"
+            ></i>
+          </button>
+        </li>
+      </ng-container>
+    </ul>
   </div>
 </nav>
+<app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="toggleSidebar()"></app-sidebar>

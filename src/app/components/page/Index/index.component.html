@@ -1,19 +1,102 @@
-<div class="row">
-  <div
-    class="container-card col-12 col-sm-6
-     col-md-6 col-lg-3 col-xl-2
-    d-flex justify-content-center mb-4 "
-    *ngFor="let game of paginatedGames"
-  >
-    <app-card [videogame]="game"></app-card>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron text-center bg-dark text-light py-5">
+    <h1 class="display-4">Bienvenido a Retro Game Store</h1>
+    <p class="lead">Tu tienda de videojuegos retro y modernos con un toque nostálgico.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Explora Ahora</a>
   </div>
 
-  <app-paginator
-    class="paginator d-flex justify-content-center"
-    [totalItems]="totalItems"
-    [itemsPerPage]="itemsPerPage"
-    [currentPage]="currentPage"
-    (pageChange)="onPageChange($event)"
-  >
-  </app-paginator>
+  <!-- Carrusel de Productos Destacados -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://via.placeholder.com/1200x400" class="d-block w-100" alt="The Legend of Zelda: Breath of the Wild">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>The Legend of Zelda: Breath of the Wild</h5>
+          <p>Una aventura épica en un mundo abierto.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/1200x400" class="d-block w-100" alt="PlayStation 5">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>PlayStation 5</h5>
+          <p>La consola de próxima generación.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/1200x400" class="d-block w-100" alt="Xbox Wireless Controller">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Xbox Wireless Controller</h5>
+          <p>Control preciso y cómodo.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Sección de Productos Destacados -->
+  <div class="container my-5">
+  <h2 class="text-center mb-4">Productos Destacados</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of paginatedProducts">
+      <div class="card product-card">
+        <img [src]="product.images" class="card-img-top" [alt]="product.name">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <a [routerLink]="['/producto', product.id]" class="btn btn-primary">Ver Más</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+  <!-- Sección de Categorías -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Explora por Categorías</h2>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card category-card">
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Videojuegos">
+          <div class="card-body">
+            <h5 class="card-title">Videojuegos</h5>
+            <a href="#" class="btn btn-outline-primary">Ver Videojuegos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card category-card">
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Consolas">
+          <div class="card-body">
+            <h5 class="card-title">Consolas</h5>
+            <a href="#" class="btn btn-outline-primary">Ver Consolas</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card category-card">
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Accesorios">
+          <div class="card-body">
+            <h5 class="card-title">Accesorios</h5>
+            <a href="#" class="btn btn-outline-primary">Ver Accesorios</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card category-card">
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="VR">
+          <div class="card-body">
+            <h5 class="card-title">VR</h5>
+            <a href="#" class="btn btn-outline-primary">Ver VR</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

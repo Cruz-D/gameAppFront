@@ -1,0 +1,89 @@
+<div class="container my-5 perfil-usuario-container">
+  <h2 class="text-center mb-4 font-pixel">Mi Perfil</h2>
+  <div class="row g-4">
+    <!-- Información personal -->
+    <div class="col-lg-6">
+      <div class="card perfil-card shadow-lg">
+        <div class="card-header font-pixel">Información Personal</div>
+        <div class="card-body">
+          <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+            <div class="mb-3">
+              <label class="form-label font-vrcosd">Nombre</label>
+              <input type="text" class="form-control" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+              <label class="form-label font-vrcosd">Apellidos</label>
+              <input type="text" class="form-control" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+              <label class="form-label font-vrcosd">Fecha de nacimiento</label>
+              <input type="date" class="form-control" formControlName="dateOfBirth">
+            </div>
+            <button type="submit" class="btn btn-primary font-vrcosd">Guardar cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Actualizar email y contraseña -->
+    <div class="col-lg-6">
+      <div class="card perfil-card shadow-lg mb-4">
+        <div class="card-header font-pixel">Seguridad</div>
+        <div class="card-body">
+          <form [formGroup]="securityForm" (ngSubmit)="updateSecurity()">
+            <div class="mb-3">
+              <label class="form-label font-vrcosd">Email</label>
+              <input type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label font-vrcosd">Nueva contraseña</label>
+              <input type="password" class="form-control" formControlName="newPassword">
+            </div>
+            <div class="mb-3">
+              <label class="form-label font-vrcosd">Repetir contraseña</label>
+              <input type="password" class="form-control" formControlName="repeatPassword">
+            </div>
+            <button type="submit" class="btn btn-outline-primary font-vrcosd">Actualizar seguridad</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Direcciones de envío -->
+    <div class="col-lg-6">
+      <div class="card perfil-card shadow-lg mb-4">
+        <div class="card-header font-pixel d-flex justify-content-between align-items-center">
+          Direcciones de envío
+          <button class="btn btn-success btn-sm font-vrcosd" (click)="addAddress()">Añadir</button>
+        </div>
+        <div class="card-body">
+          <ul class="list-group mb-3">
+            <li *ngFor="let address of addresses; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+              <span>{{ address }}</span>
+              <button class="btn btn-danger btn-sm" (click)="removeAddress(i)">Eliminar</button>
+            </li>
+          </ul>
+          <input type="text" class="form-control mb-2" [(ngModel)]="newAddress" placeholder="Nueva dirección">
+          <button class="btn btn-outline-success font-vrcosd" (click)="saveAddress()">Guardar dirección</button>
+        </div>
+      </div>
+    </div>
+    <!-- Métodos de pago -->
+    <div class="col-lg-6">
+      <div class="card perfil-card shadow-lg mb-4">
+        <div class="card-header font-pixel d-flex justify-content-between align-items-center">
+          Métodos de pago
+          <button class="btn btn-success btn-sm font-vrcosd" (click)="addPayment()">Añadir</button>
+        </div>
+        <div class="card-body">
+          <ul class="list-group mb-3">
+            <li *ngFor="let payment of payments; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+              <span>{{ payment }}</span>
+              <button class="btn btn-danger btn-sm" (click)="removePayment(i)">Eliminar</button>
+            </li>
+          </ul>
+          <input type="text" class="form-control mb-2" [(ngModel)]="newPayment" placeholder="Nuevo método de pago">
+          <button class="btn btn-outline-success font-vrcosd" (click)="savePayment()">Guardar método</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

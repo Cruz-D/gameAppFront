@@ -1,58 +1,414 @@
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-  <div class="row w-100">
-    <div class="col-md-5 colum-text">
-      <h1><i class="fas fa-user-plus"></i> Crea tu cuenta</h1>
+<div
+  class="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100"
+>
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-5 col-12 colum-text p-4">
+      <h1 class="mb-3">
+        <i class="fas fa-user-plus me-2" aria-hidden="true"></i>
+        Crea tu cuenta
+      </h1>
       <p>
-        Únete a nuestra comunidad y accede a una experiencia de juego única. Regístrate en pocos pasos y empieza a disfrutar de todas las ventajas.
+        Únete a nuestra comunidad y accede a una experiencia de juego única.
+        Regístrate en pocos pasos y comienza a disfrutar de todas las ventajas.
       </p>
-      <hr />
-      <p class="text-center">
-        ¿Ya tienes una cuenta? <a href="#">Inicia sesión</a>
+      <hr class="my-4" />
+      <p class="text-center mb-0">
+        ¿Ya tienes una cuenta?
+        <a routerLink="/login" class="fw-bold text-success">Inicia sesión</a>
       </p>
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-5 colum-form">
-      <h2 class="text-center">Registro</h2>
-      <form [formGroup]="registerForm">
-        <div class="form-group mb-3">
-          <label for="username">Usuario</label>
-          <input type="text" class="form-control" formControlName="username" placeholder="Ingresa tu usuario" />
-          <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="text-danger mt-2">
-            <small *ngIf="registerForm.get('username')?.errors?.['required']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> El usuario es requerido.</small>
-            <small *ngIf="registerForm.get('username')?.errors?.['username']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> El usuario no es válido.</small>
+    <div class="col-md-5 col-12 colum-form p-4">
+      <h2 class="text-center mb-4">Registro</h2>
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+        class="needs-validation"
+        novalidate
+      >
+        <!-- Sección: Información de cuenta -->
+        <h5 class="mb-3">Información de cuenta</h5>
+        <hr class="mb-4" />
+        <div class="mb-3 position-relative">
+          <label for="username" class="form-label">Usuario</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            formControlName="username"
+            placeholder="Ingresa tu usuario"
+            aria-describedby="usernameFeedback"
+          />
+          <div
+            *ngIf="registerForm.get('username')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="registerForm.get('username')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('username')?.invalid &&
+              registerForm.get('username')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('username')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> El usuario es requerido.</small
+            >
+            <small *ngIf="registerForm.get('username')?.errors?.['pattern']"
+              ><i class="fas fa-xmark me-1"></i> Solo letras, números y
+              guiones.</small
+            >
           </div>
         </div>
-        <div class="form-group mb-3">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" formControlName="email" placeholder="Ingresa tu email" />
-          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger mt-2">
-            <small *ngIf="registerForm.get('email')?.errors?.['required']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> El correo electrónico es requerido.</small>
-            <small *ngIf="registerForm.get('email')?.errors?.['email']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> El correo electrónico no es válido.</small>
+        <div class="mb-3 position-relative">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="Ingresa tu email"
+            aria-describedby="emailFeedback"
+          />
+          <div
+            *ngIf="registerForm.get('email')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="registerForm.get('email')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('email')?.invalid &&
+              registerForm.get('email')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('email')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> El correo electrónico es
+              requerido.</small
+            >
+            <small *ngIf="registerForm.get('email')?.errors?.['email']"
+              ><i class="fas fa-xmark me-1"></i> El correo electrónico no es
+              válido.</small
+            >
           </div>
         </div>
-        <div class="form-group mb-3">
-          <label for="password">Contraseña</label>
-          <input type="password" class="form-control" formControlName="password" placeholder="Ingresa tu contraseña" />
-          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger mt-2">
-            <small *ngIf="registerForm.get('password')?.errors?.['required']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> La contraseña es requerida.</small>
-            <small *ngIf="registerForm.get('password')?.errors?.['password']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> La contraseña no es válida.</small>
+        <div class="mb-3 position-relative">
+          <label for="password" class="form-label">Contraseña</label>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Ingresa tu contraseña"
+            aria-describedby="passwordFeedback"
+          />
+          <button
+            type="button"
+            class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3"
+            (click)="togglePasswordVisibility('password')"
+          >
+            <i
+              class="fas"
+              [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+            ></i>
+          </button>
+          <div
+            *ngIf="registerForm.get('password')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-5"
+          >
+            <i
+              *ngIf="registerForm.get('password')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('password')?.invalid &&
+              registerForm.get('password')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('password')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> La contraseña es
+              requerida.</small
+            >
+            <small *ngIf="registerForm.get('password')?.errors?.['pattern']"
+              ><i class="fas fa-xmark me-1"></i> Mínimo 8 caracteres, con letras
+              y números.</small
+            >
           </div>
         </div>
-        <div class="form-group mb-3">
-          <label for="RepPassword">Repite la contraseña</label>
-          <input type="password" class="form-control" formControlName="RepPassword" placeholder="Repite tu contraseña" />
-          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger mt-2">
-            <small *ngIf="registerForm.get('password')?.errors?.['required']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> La contraseña es requerida.</small>
-            <small *ngIf="registerForm.get('password')?.errors?.['password']"><i class="fa-sharp-duotone fa-solid fa-xmark"></i> La contraseña no es válida.</small>
+        <div class="mb-3 position-relative">
+          <label for="RepPassword" class="form-label"
+            >Repite la contraseña</label
+          >
+          <input
+            [type]="showRepPassword ? 'text' : 'password'"
+            class="form-control"
+            id="RepPassword"
+            formControlName="RepPassword"
+            placeholder="Repite tu contraseña"
+            aria-describedby="repPasswordFeedback"
+          />
+          <button
+            type="button"
+            class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3"
+            (click)="togglePasswordVisibility('repPassword')"
+          >
+            <i
+              class="fas"
+              [ngClass]="showRepPassword ? 'fa-eye-slash' : 'fa-eye'"
+            ></i>
+          </button>
+          <div
+            *ngIf="registerForm.get('RepPassword')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-5"
+          >
+            <i
+              *ngIf="registerForm.get('RepPassword')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('RepPassword')?.invalid &&
+              registerForm.get('RepPassword')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('RepPassword')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> La confirmación es
+              requerida.</small
+            >
+            <small *ngIf="registerForm.get('RepPassword')?.errors?.['mismatch']"
+              ><i class="fas fa-xmark me-1"></i> Las contraseñas no
+              coinciden.</small
+            >
           </div>
         </div>
-        <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-          <label class="form-check-label" for="flexCheckDefault">
-            <a href="#">Acepto los términos y condiciones</a>
+
+        <!-- Sección: Información personal -->
+        <h5 class="mb-3">Información personal</h5>
+        <hr class="mb-4" />
+        <div class="mb-3 position-relative">
+          <label for="firstName" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+            placeholder="Ingresa tu nombre"
+            aria-describedby="firstNameFeedback"
+          />
+          <div
+            *ngIf="registerForm.get('firstName')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="registerForm.get('firstName')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('firstName')?.invalid &&
+              registerForm.get('firstName')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('firstName')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> El nombre es requerido.</small
+            >
+            <small *ngIf="registerForm.get('firstName')?.errors?.['pattern']"
+              ><i class="fas fa-xmark me-1"></i> Solo letras y espacios.</small
+            >
+          </div>
+        </div>
+        <div class="mb-3 position-relative">
+          <label for="lastName" class="form-label">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+            placeholder="Ingresa tu apellido"
+            aria-describedby="lastNameFeedback"
+          />
+          <div
+            *ngIf="registerForm.get('lastName')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="registerForm.get('lastName')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('lastName')?.invalid &&
+              registerForm.get('lastName')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('lastName')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> El apellido es
+              requerido.</small
+            >
+            <small *ngIf="registerForm.get('lastName')?.errors?.['pattern']"
+              ><i class="fas fa-xmark me-1"></i> Solo letras y espacios.</small
+            >
+          </div>
+        </div>
+        <div class="mb-3 position-relative">
+          <label for="lastName2" class="form-label">Segundo apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName2"
+            formControlName="lastName2"
+            placeholder="Ingresa tu apellido"
+            aria-describedby="lastNameFeedback"
+          />
+          <div
+            *ngIf="registerForm.get('lastName2')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="registerForm.get('lastName2')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('lastName2')?.invalid &&
+              registerForm.get('lastName2')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('lastName2')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> El apellido es
+              requerido.</small
+            >
+            <small *ngIf="registerForm.get('lastName2')?.errors?.['pattern']"
+              ><i class="fas fa-xmark me-1"></i> Solo letras y espacios.</small
+            >
+          </div>
+        </div>
+        <div class="mb-3 position-relative">
+          <label for="dateOfBirth" class="form-label"
+            >Fecha de nacimiento</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="dateOfBirth"
+            formControlName="dateOfBirth"
+            aria-describedby="dateOfBirthFeedback"
+          />
+          <div
+            *ngIf="registerForm.get('dateOfBirth')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="registerForm.get('dateOfBirth')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('dateOfBirth')?.invalid &&
+              registerForm.get('dateOfBirth')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="registerForm.get('dateOfBirth')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> La fecha de nacimiento es
+              requerida.</small
+            >
+          </div>
+        </div>
+        <div class="mb-3 position-relative">
+          <label for="profilePicture" class="form-label">Foto de perfil</label>
+          <input
+            type="file"
+            class="form-control"
+            id="profilePicture"
+            formControlName="profilePicture"
+            (change)="onFileChange($event)"
+            accept="image/*"
+            aria-describedby="profilePictureFeedback"
+          />
+          <div
+            *ngIf="registerForm.get('profilePictureUrl')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="registerForm.get('profilePictureUrl')?.valid"
+              class="fas fa-check"
+            ></i>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('profilePictureUrl')?.invalid &&
+              registerForm.get('profilePictureUrl')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small
+              *ngIf="registerForm.get('profilePictureUrl')?.errors?.['pattern']"
+              ><i class="fas fa-xmark me-1"></i> La URL de la foto no es
+              válida.</small
+            >
+          </div>
+        </div>
+
+        <!-- Términos y condiciones -->
+        <div class="form-check mb-4">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="terms"
+            formControlName="terms"
+            aria-describedby="termsFeedback"
+          />
+          <label class="form-check-label" for="terms">
+            Acepto los <a href="#">términos y condiciones</a>
           </label>
+          <div
+            *ngIf="
+              registerForm.get('terms')?.invalid &&
+              registerForm.get('terms')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small
+              ><i class="fas fa-xmark me-1"></i> Debes aceptar los términos y
+              condiciones.</small
+            >
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Registrar</button>
+
+        <!-- Botón de envío -->
+        <button
+          type="submit"
+          class="btn btn-primary w-100 d-flex align-items-center justify-content-center"
+          [disabled]="registerForm.invalid || isSubmitting"
+        >
+          <span
+            *ngIf="isSubmitting"
+            class="spinner-border spinner-border-sm me-2"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          {{ isSubmitting ? "Registrando..." : "Registrar" }}
+        </button>
       </form>
     </div>
   </div>

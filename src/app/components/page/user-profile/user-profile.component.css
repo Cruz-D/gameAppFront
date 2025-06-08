@@ -1,4 +1,3 @@
-/* Fuentes retro */
 @font-face {
   font-family: 'vrcosd';
   src: url('/src/app/shared/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('truetype');
@@ -11,56 +10,44 @@
 .font-vrcosd { font-family: 'vrcosd', monospace; }
 .font-pixel { font-family: 'pixel', 'vrcosd', monospace; }
 
-/* Jumbotron */
-.jumbotron {
-  background: linear-gradient(135deg, var(--dark-green), var(--muted-green));
+.perfil-usuario-container {
+  max-width: 1100px;
+  background: var(--dark-green, #1B331C);
   border-radius: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 2rem 1rem;
   box-shadow: 0 4px 24px #0008;
 }
 
-/* Carrusel */
-.carousel-inner img {
+.perfil-card {
   border-radius: 1.2rem;
-  object-fit: cover;
-  height: 400px;
-}
-
-.carousel-caption {
-  font-family: 'vrcosd', monospace;
-  background: rgba(20,40,20,0.7);
-  border-radius: 1rem;
-}
-
-/* Cards de productos y categorías */
-.product-card, .category-card {
-  border-radius: 1.2rem;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
   background: var(--muted-green, #2e4d36);
   color: var(--primary-green, #69F072);
   border: none;
+  margin-bottom: 1.5rem;
 }
 
-.product-card:hover, .category-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 8px 32px #000a;
-  background: var(--light-muted-green, #789C7A);
+.card-header {
+  background: var(--primary-green, #69F072);
   color: var(--dark-green, #1B331C);
-}
-
-.card-title {
+  font-size: 1.1rem;
+  border-radius: 1.2rem 1.2rem 0 0;
   font-family: 'pixel', 'vrcosd', monospace;
-  color: var(--primary-green, #69F072);
-  font-size: 1.2rem;
 }
 
-.card-text {
+.form-label {
+  color: var(--primary-green, #69F072);
   font-family: 'vrcosd', monospace;
-  color: var(--primary-green, #69F072);
 }
 
-.btn-primary, .btn-outline-primary {
+.form-control {
+  background: var(--dark-green, #1B331C);
+  color: var(--primary-green, #69F072);
+  border: 1px solid var(--primary-green, #69F072);
+  border-radius: 0.7rem;
+  font-family: 'vrcosd', monospace;
+}
+
+.btn-primary, .btn-outline-primary, .btn-success, .btn-outline-success, .btn-danger {
   font-family: 'vrcosd', monospace;
   border-radius: 0.8rem;
   font-weight: bold;
@@ -74,7 +61,7 @@
   border: none;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-success:hover, .btn-outline-success:hover {
   background: var(--light-muted-green, #789C7A);
   color: var(--dark-green, #1B331C);
 }
@@ -90,35 +77,18 @@
   color: var(--dark-green, #1B331C);
 }
 
-.container, .container-fluid {
-  max-width: 1200px;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .carousel-inner img {
-    height: 250px;
-  }
+.list-group-item {
+  background: var(--muted-green, #2e4d36);
+  color: var(--primary-green, #69F072);
+  border: none;
+  font-family: 'vrcosd', monospace;
 }
 
 @media (max-width: 768px) {
-  .jumbotron {
-    padding: 2rem 1rem;
+  .perfil-usuario-container {
+    padding: 1rem 0.5rem;
   }
-  .carousel-inner img {
-    height: 180px;
-  }
-  .card-title {
+  .card-header {
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .container, .container-fluid {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .row.g-4 > [class^="col-"] {
-    margin-bottom: 1rem;
   }
 }

@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importar fuentes */
+@font-face {
+  font-family: 'vrcosd';
+  src: url('/src/app/shared/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pixel';
+  src: url('/src/app/shared/fonts/pixeled/Pixeled.ttf') format('truetype');
+}
+
+/* Variables CSS */
+:root {
+  --primary-green: #69F072;
+  --dark-green: #1B331C;
+  --medium-green: #78C47D;
+  --muted-green: #304531;
+  --hover-green: #607062;
+  --light-muted-green: #789C7A;
+  --amber: #FFB700;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --border-radius: 0.5rem;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --crt-glow: 0 0 5px rgba(105, 240, 114, 0.5);
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos base */
+body {
+  font-family: 'vrcosd', monospace;
+  background-color: var(--dark-green);
+  color: var(--primary-green);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'pixel', 'vrcosd', monospace;
+  color: var(--primary-green);
+  text-shadow: var(--crt-glow);
+}
+
+a {
+  color: var(--primary-green);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--light-muted-green);
+}
+
+/* Efecto CRT opcional */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Botones genéricos */
+.button {
+  background-color: var(--muted-green);
+  color: var(--primary-green);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--hover-green);
+  transform: translateY(-2px);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: var(--crt-glow);
+}
+
+/* Inputs genéricos */
+.input {
+  background-color: var(--dark-green);
+  color: var(--primary-green);
+  border: 1px solid var(--medium-green);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: var(--crt-glow);
+}
