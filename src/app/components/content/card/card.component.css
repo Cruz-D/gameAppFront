@@ -1,182 +1,145 @@
-/* Estilos para la tarjeta */
+/* --- Tarjeta de producto retro mejorada --- */
 .card {
   position: relative;
-
-  overflow: hidden; /* Ocultar contenido que se desborde */
-  height: 100%; /* Altura completa */
-  width: 100%; /* Ancho completo */
-  max-width: 35vh; /* Ancho máximo */
-  max-height: fit-content ;
-  padding: auto;
-  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves para transformaciones y sombras */
-
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  background-color: var(--dark-green, #1B331C) !important;
+  border: 2px solid var(--primary-green, #69F072);
+  border-radius: var(--border-radius, 1.2rem);
+  box-shadow: var(--shadow, 0 4px 24px #0008);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
-/* Estilos para la tarjeta al pasar el ratón */
 .card:hover {
-  transform: scale(1.05); /* Escalar ligeramente la tarjeta */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 8px 32px #000a;
+  background-color: var(--light-muted-green, #789C7A) !important;
 }
-
-/* Estilos para el cuerpo de la tarjeta */
-.card-body {
-  display: none;
-  padding: 40px; /* Relleno interno */
-  height: 100%; /* Altura completa */
-  transition: opacity 0.3s; /* Transición suave para la opacidad */
-}
-
-/* Estilos para el título de la tarjeta */
-.card-title {
-  font-size: 1.25rem; /* Tamaño de fuente */
-  margin-bottom: 10px; /* Margen inferior */
-  text-align: center; /* Alineación centrada */
-  color: #333; /* Color del texto */
-}
-
-/* Estilos para el texto de la tarjeta */
-.card-text {
-  font-size: 0.9rem; /* Tamaño de fuente */
-  color: #555; /* Color del texto */
-  text-align: start; /* Alineación del texto al inicio */
-}
-
-/* Estilos para la imagen del cuerpo de la tarjeta */
-.card-body-image {
-  display: block; /* Ocultar inicialmente */
-  opacity: 1; /* Opacidad inicial */
-  transition: opacity 0.3s linear; /* Transición suave para la opacidad */
-}
-
-/* Estilos para el cuerpo de la tarjeta al pasar el ratón */
-.card:hover .card-body {
-  display: block;
-}
-
-
-/* Estilos para la imagen del cuerpo de la tarjeta al pasar el ratón */
-.card:hover .card-body-image {
-  display: none; /* Mostrar la imagen */
-}
-
-/* Estilos para la imagen de la tarjeta */
 
 .card-img-top {
-  object-fit: cover; /* Cubrir toda la tarjeta */
-  width: 100%; /* Ancho completo */
-  height: auto; /* Altura automática */
-  display: block; /* Mostrar como bloque */
-  transition : transform 0.3s; /* Transición suave para transformaciones */
+  object-fit: cover;
+  width: 100%;
+  height: 220px; /* Aumentado para dar más protagonismo a la imagen */
+  border-top-left-radius: var(--border-radius, 1.2rem);
+  border-top-right-radius: var(--border-radius, 1.2rem);
+  display: block;
+  transition: transform 0.3s;
+  filter: brightness(1.05); /* Ligero brillo para mejorar la visibilidad */
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-  .card {
-    max-width: 250px; /* Ancho máximo en pantallas pequeñas */
-  }
-
-  .card-body {
-    padding: 15px; /* Reducir el padding en pantallas pequeñas */
-  }
-
-  .card-title {
-    font-size: 1rem; /* Reducir el tamaño de la fuente del título en pantallas pequeñas */
-  }
-
-  .card-text {
-    font-size: 0.8rem; /* Reducir el tamaño de la fuente del texto en pantallas pequeñas */
-  }
+.card:hover .card-img-top {
+  transform: scale(1.05); /* Zoom sutil al hacer hover */
 }
 
-@media (max-width: 576px) {
-  .card {
-    max-width: 200px; /* Ancho máximo en pantallas muy pequeñas */
-  }
-
-  .card-body {
-    padding: 10px; /* Reducir aún más el padding en pantallas muy pequeñas */
-  }
-
-  .card-title {
-    font-size: 0.9rem; /* Reducir aún más el tamaño de la fuente del título en pantallas muy pequeñas */
-  }
-
-  .card-text {
-    font-size: 0.7rem; /* Reducir aún más el tamaño de la fuente del texto en pantallas muy pequeñas */
-  }
+.card-body {
+  padding: var(--spacing-md, 1.2rem);
+  background: transparent !important;
+  color: var(--primary-green, #69F072);
+  font-family: 'vrcosd', monospace;
+  transition: opacity 0.3s;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center; /* Centrado para un look más retro */
 }
 
+.card-title {
+  font-family: 'pixel', 'vrcosd', monospace;
+  color: var(--primary-green, #69F072);
+  font-size: 1.3rem; /* Tamaño ligeramente mayor para destacar */
+  margin-bottom: var(--spacing-sm, 0.7rem);
+  text-shadow: 1px 1px 2px #000; /* Sombra para mejor legibilidad */
+}
+
+.card-text {
+  font-family: 'vrcosd', monospace;
+  color: var(--medium-green, #A5F2B5);
+  font-size: 1rem; /* Tamaño base ajustado */
+  margin-bottom: var(--spacing-sm, 0.7rem);
+  text-align: center; /* Centrado para consistencia */
+}
+
+.price {
+  color: var(--amber, #FFC107);
+  font-weight: bold;
+  font-size: 1.1rem; /* Tamaño ligeramente mayor para destacar */
+}
+
+hr {
+  border-color: var(--primary-green, #69F072);
+  opacity: 0.5;
+  margin: 1rem 0; /* Espaciado consistente */
+}
+
+.text-success {
+  color: #69F072 !important;
+  font-weight: bold;
+}
+.text-danger {
+  color: #ff4d4f !important;
+  font-weight: bold;
+}
+
+/* --- Detalles retro --- */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* --- Ajustes de accesibilidad --- */
+.card a {
+  color: var(--primary-green, #69F072);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.card a:hover {
+  color: var(--light-muted-green, #789C7A);
+  text-decoration: underline;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+  .card-img-top { height: 180px; }
+  .card-title { font-size: 1.2rem; }
+  .card-text { font-size: 0.95rem; }
+}
 @media (max-width: 992px) {
-  .card {
-    max-width: 210px; /* Ancho máximo en tablets y portátiles pequeños */
-  }
-
-  .card-body {
-    padding: 20px; /* Ajustar el padding en tablets y portátiles pequeños */
-  }
-
-  .card-title {
-    font-size: 1.1rem; /* Ajustar el tamaño de la fuente del título en tablets y portátiles pequeños */
-  }
-
-  .card-text {
-    font-size: 0.85rem; /* Ajustar el tamaño de la fuente del texto en tablets y portátiles pequeños */
-  }
+  .card-img-top { height: 150px; }
+  .card-body { padding: 0.8rem; }
+  .card-title { font-size: 1.1rem; }
+  .card-text { font-size: 0.9rem; }
 }
-
-@media (max-width: 1024px) {
-  .card {
-    max-width: 220px; /* Ancho máximo en tablets y portátiles pequeños */
-  }
-
-  .card-body {
-    padding: 20px; /* Ajustar el padding en tablets y portátiles pequeños */
-  }
-
-  .card-title {
-    font-size: 1.1rem; /* Ajustar el tamaño de la fuente del título en tablets y portátiles pequeños */
-  }
-
-  .card-text {
-    font-size: 0.85rem; /* Ajustar el tamaño de la fuente del texto en tablets y portátiles pequeños */
-  }
+@media (max-width: 768px) {
+  .card-img-top { height: 120px; }
+  .card-body { padding: 0.6rem; }
+  .card-title { font-size: 1rem; }
+  .card-text { font-size: 0.85rem; }
 }
-
-@media (max-width: 1550px) {
-  .card {
-    max-width: 500px; /* Ancho máximo en tablets y portátiles pequeños */
-  }
-
-  .card-body {
-    padding: 20px; /* Ajustar el padding en tablets y portátiles pequeños */
-  }
-
-  .card-title {
-    font-size: 1.1rem; /* Ajustar el tamaño de la fuente del título en tablets y portátiles pequeños */
-    margin-bottom: 20px; /* Aumentar el margen inferior */
-  }
-
-  .card-text {
-    font-size: 0.85rem; /* Ajustar el tamaño de la fuente del texto en tablets y portátiles pequeños */
-    margin-bottom: 20px; /* Aumentar el margen inferior */
-  }
-}
-
-@media (max-width: 1920px) {
-  .card {
-    max-width: 250px; /* Ancho máximo en tablets y portátiles pequeños */
-  }
-
-  .card-body {
-    padding: 10px; /* Ajustar el padding en tablets y portátiles pequeños */
-  }
-
-  .card-title {
-    font-size: 1.1rem; /* Ajustar el tamaño de la fuente del título en tablets y portátiles pequeños */
-  }
-
-  .card-text {
-    font-size: 0.85rem; /* Ajustar el tamaño de la fuente del texto en tablets y portátiles pequeños */
-  }
+@media (max-width: 576px) {
+  .card-img-top { height: 100px; }
+  .card-body { padding: 0.4rem; }
+  .card-title { font-size: 0.9rem; }
+  .card-text { font-size: 0.8rem; }
 }

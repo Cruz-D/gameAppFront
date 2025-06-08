@@ -12,10 +12,6 @@
       <div class="col-6 card-text">{{ product.productCategory }}</div>
     </div>
     <div class="row mt-2">
-      <div class="col-6"><strong>Descripción:</strong></div>
-      <div class="col-6 card-text">{{ product.description }}</div>
-    </div>
-    <div class="row mt-2">
       <div class="col-6"><strong>Precio:</strong></div>
       <div class="col-6 card-text">
         {{ product.price.value | currency:product.price.currency }}
@@ -63,13 +59,13 @@
       </div>
     </div>
     <div class="row mt-2">
-      <div class="btn-group" role="group" aria-label="Basic example">
+      <div class="btn-group w-100 mt-auto" role="group" aria-label="Basic example">
         <button type="button"
-        [routerLink]="['/details', product.id]"
-        routerLinkActive="router-link-active"
-        class="col-6 btn btn-primary">
-  Detalles
-</button>
+          [routerLink]="['/details', product.id]"
+          routerLinkActive="router-link-active"
+          class="col-12 btn btn-primary">
+          Detalles
+        </button>
       </div>
     </div>
   </div>

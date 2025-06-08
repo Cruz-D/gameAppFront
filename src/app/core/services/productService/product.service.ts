@@ -16,6 +16,11 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.apiUrl}`);
   }
 
+  // Método para obtener productos filtrados pasando una categoria
+  getProductsByCategory(category: string) {
+    return this.http.get<Product[]>(`${this.apiUrl}?category=${category}`);
+  }
+
   // Método para obtener un producto por su ID
   getProductById(id: string) {
     return this.http.get<Product>(`${this.apiUrl}/${id}`);

@@ -1,0 +1,124 @@
+
+/* Contenedor de filtros */
+.filter-container {
+  background-color: var(--dark-green);
+  border: 2px solid var(--primary-green);
+  margin: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+}
+
+/* Ajuste para inputs y selects pequeños en el header de filtros */
+.filter-container .form-control-sm,
+.filter-container .form-select-sm {
+  height: 32px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0 !important;
+}
+
+/* Elimina el margin-bottom extra de los selects */
+.filter-container select {
+  margin-bottom: 0 !important;
+}
+
+/* Ajuste para que los inputs de rango de precio estén alineados */
+.filter-container .d-flex.gap-1 > .form-control-sm {
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+/* Ajuste para que los checkboxes estén alineados verticalmente */
+.filter-container .form-check {
+  margin-bottom: 0;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Texto */
+p {
+  color: var(--primary-green);
+  font-family: 'vrcosd', monospace;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Input */
+input {
+  font-size: 1rem;
+  background-color: var(--muted-green);
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input::placeholder {
+  color: var(--medium-green);
+  opacity: 0.7;
+}
+
+input:focus {
+  background-color: var(--dark-green);
+  border-color: var(--primary-green);
+  outline: none;
+}
+
+/* Select */
+select {
+  font-size: 1rem;
+  background-color: var(--muted-green);
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+  font-family: 'vrcosd', monospace;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+select:focus {
+  background-color: var(--dark-green);
+  border-color: var(--primary-green);
+  outline: none;
+}
+
+/* Botón */
+button {
+  font-size: 1rem;
+  background-color: var(--primary-green);
+  border: 1px solid var(--primary-green);
+  color: var(--dark-green);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--light-muted-green);
+  transform: translateY(-2px);
+}
+
+
+
+/* Línea divisoria */
+hr {
+  border-color: var(--primary-green);
+  opacity: 0.5;
+}
+
+/* Responsividad */
+@media (max-width: 767.98px) {
+  .filter-container {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-sm);
+  }
+
+  input, select, button {
+    font-size: 0.9rem;
+  }
+
+
+}

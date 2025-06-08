@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FilterAndSearchComponent } from '../filter-and-search/filter-and-search.component';
-
+import { FilterAndSearchComponent } from '../../content/forms/filter-and-search/filter-and-search.component';
 @Component({
   selector: 'app-game-library',
   imports: [FilterAndSearchComponent],
