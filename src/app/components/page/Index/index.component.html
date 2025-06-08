@@ -43,40 +43,20 @@
 
   <!-- Sección de Productos Destacados -->
   <div class="container my-5">
-    <h2 class="text-center mb-4">Productos Destacados</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card product-card">
-          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="The Legend of Zelda: Breath of the Wild">
-          <div class="card-body">
-            <h5 class="card-title">The Legend of Zelda: Breath of the Wild</h5>
-            <p class="card-text">Una aventura épica en un mundo abierto.</p>
-            <a href="#" class="btn btn-primary">Ver Más</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card product-card">
-          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="PlayStation 5">
-          <div class="card-body">
-            <h5 class="card-title">PlayStation 5</h5>
-            <p class="card-text">La consola de próxima generación.</p>
-            <a href="#" class="btn btn-primary">Ver Más</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card product-card">
-          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Xbox Wireless Controller">
-          <div class="card-body">
-            <h5 class="card-title">Xbox Wireless Controller</h5>
-            <p class="card-text">Control preciso y cómodo.</p>
-            <a href="#" class="btn btn-primary">Ver Más</a>
-          </div>
+  <h2 class="text-center mb-4">Productos Destacados</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of paginatedProducts">
+      <div class="card product-card">
+        <img [src]="product.images" class="card-img-top" [alt]="product.name">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <a [routerLink]="['/producto', product.id]" class="btn btn-primary">Ver Más</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Sección de Categorías -->
   <div class="container my-5">

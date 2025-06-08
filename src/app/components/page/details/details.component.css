@@ -62,11 +62,6 @@ h1{
   color: var(--light-muted-green);
 }
 
-.accordion-button:not(.collapsed) {
-  background-color: #607062; /* Fondo más oscuro cuando está expandido */
-  color: #78C47D; /* Color del texto cuando está expandido */
-
-}
 
 .accordion-button:focus {
   outline: none;
