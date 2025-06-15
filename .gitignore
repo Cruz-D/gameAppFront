@@ -22,6 +22,7 @@ yarn-error.log
 
 # Visual Studio Code
 .vscode/*
+.vs
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -40,3 +41,19 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+.vs/gameAppFront/copilot-chat/7415c3c2/sessions/0b362d7d-b7d5-4573-9084-70284bb8d29e
+.vs/gameAppFront/CopilotIndices/17.12.68.61481/CodeChunks.db
+.vs/gameAppFront/CopilotIndices/17.12.68.61481/CodeChunks.db-shm
+.vs/gameAppFront/CopilotIndices/17.12.68.61481/CodeChunks.db-wal
+.vs/gameAppFront/CopilotIndices/17.12.68.61481/SemanticSymbols.db
+.vs/gameAppFront/CopilotIndices/17.12.68.61481/SemanticSymbols.db-shm
+.vs/gameAppFront/CopilotIndices/17.12.68.61481/SemanticSymbols.db-wal
+.vs/gameAppFront/FileContentIndex/3a9cb597-6621-4bc8-8345-d5e362d51aac.vsidx
+.vs/gameAppFront/FileContentIndex/5adafa87-d206-4bbe-aa1f-b8aaf19957d3.vsidx
+.vs/gameAppFront/FileContentIndex/883565a3-02c3-472c-9555-1c89dd57cba5.vsidx
+.vs/gameAppFront/FileContentIndex/e241e621-48c8-44af-974e-d99aa7105503.vsidx
+.vs/gameAppFront/FileContentIndex/fbc35470-c080-4d3c-92e5-837a2c3fba0b.vsidx
+.vs/slnx.sqlite
+.vs/gameAppFront/FileContentIndex/89b5f654-83fd-4151-a2a6-2f47da87d8e0.vsidx
+.vs/gameAppFront/FileContentIndex/4d693c05-1dfb-49df-b47d-54d96ca474cf.vsidx
+.vs/gameAppFront/FileContentIndex/206a31d3-ad08-40e5-a029-d3f3adf66a9a.vsidx

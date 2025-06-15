@@ -1,0 +1,9 @@
+form {
+  background: var(--dark-green, #1B331C);
+  color: var(--primary-green, #69F072);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  font-family: 'vrcosd', monospace;
+  max-width: 400px;
+  margin: 0 auto;
+}

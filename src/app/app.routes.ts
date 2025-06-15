@@ -7,6 +7,10 @@ import { LoginFormComponent } from './components/content/forms/loginForm/loginFo
 import { RegisterComponent } from './components/content/forms/registerForm/registerForm.component';
 import { DetailsComponent } from './components/page/details/details.component';
 import { PerfilUsuarioComponent } from './components/page/user-profile/user-profile.component';
+import { CartPageComponent } from './components/page/cart-page/cart-page.component';
+import { CheckoutComponent } from './components/page/checkout/checkout.component';
+import { PaymentGatewayComponent } from './components/page/payment-gateway/payment-gateway.component';
+import { MyOrdersComponent } from './components/page/my-orders/my-orders.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirigir la ruta raíz a 'home'
@@ -18,5 +22,9 @@ export const routes: Routes = [
   { path: 'details', component: DetailsComponent, data: { title: 'details' } },
   { path: 'details/:id', component: DetailsComponent, data: { title: 'details' } },
   { path: 'profile/:id', component: PerfilUsuarioComponent, data: { title: 'profile' } },
+  { path: 'cart', component: CartPageComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'payment-gateway', component: PaymentGatewayComponent },
+  { path: 'my-orders', component: MyOrdersComponent }
 
 ];

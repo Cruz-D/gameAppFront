@@ -47,6 +47,9 @@
     <!-- Botones de usuario -->
 
     <ul class="navbar-nav ms-auto align-items-center">
+      <!-- Widget del carrito -->
+      <app-cart-widget></app-cart-widget>
+
       <ng-container *ngIf="!authServices.isLoggedIn()">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -81,3 +84,4 @@
   </div>
 </nav>
 <app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="toggleSidebar()"></app-sidebar>
+

@@ -1,29 +1,34 @@
-<div class="card" style="width: 25rem;">
-
+<div class="card" style="width: 25rem">
   <div class="card-body-image">
-    <img class="card-img-top" [src]="product.images[0]?.url" [alt]="product.images[0]?.description || product.name">
+    <img
+      class="card-img-top"
+      [src]="product.images[0].url"
+      [alt]="product.images[0].description || product.name"
+    />
   </div>
   <div class="card-body">
-
     <h5 class="card-title">{{ product.name }}</h5>
-    <hr>
-    <div class="row mt-2">
-      <div class="col-6"><strong>Categoría:</strong></div>
-      <div class="col-6 card-text">{{ product.productCategory }}</div>
-    </div>
+    <hr />
+
     <div class="row mt-2">
       <div class="col-6"><strong>Precio:</strong></div>
       <div class="col-6 card-text">
-        {{ product.price.value | currency:product.price.currency }}
-        <span *ngIf="product.price.discount">(-{{ product.price.discount }}%)</span>
+        {{ product.price.value | currency : product.price.currency }}
+        <span *ngIf="product.price.discount"
+          >(-{{ product.price.discount }}%)</span
+        >
       </div>
     </div>
     <div class="row mt-2">
       <div class="col-6"><strong>Stock:</strong></div>
       <div class="col-6 card-text">
         {{ product.stock.quantity }}
-        <span *ngIf="product.stock.available" class="text-success">Disponible</span>
-        <span *ngIf="!product.stock.available" class="text-danger">No disponible</span>
+        <span *ngIf="product.stock.available" class="text-success"
+          >Disponible</span
+        >
+        <span *ngIf="!product.stock.available" class="text-danger"
+          >No disponible</span
+        >
       </div>
     </div>
     <div class="row mt-2">
@@ -38,33 +43,30 @@
       <div class="col-6"><strong>Condición:</strong></div>
       <div class="col-6 card-text">{{ product.details.condition }}</div>
     </div>
-    <div class="row mt-2">
-      <div class="col-6"><strong>Año lanzamiento:</strong></div>
-      <div class="col-6 card-text">{{ product.details.releaseYear }}</div>
-    </div>
-    <div class="row mt-2" *ngIf="product.specifications.videogame">
-      <div class="col-6"><strong>Género:</strong></div>
-      <div class="col-6 card-text">{{ product.specifications.videogame.genre }}</div>
-    </div>
-    <div class="row mt-2" *ngIf="product.specifications.videogame">
-      <div class="col-6"><strong>Rating:</strong></div>
-      <div class="col-6 card-text">{{ product.specifications.videogame.rating }}</div>
-    </div>
-    <div class="row mt-2" *ngIf="product.tags?.length">
-      <div class="col-6"><strong>Tags:</strong></div>
-      <div class="col-6 card-text">
-        <span *ngFor="let tag of product.tags; let last = last">
-          {{ tag }}<span *ngIf="!last">, </span>
-        </span>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="btn-group w-100 mt-auto" role="group" aria-label="Basic example">
-        <button type="button"
+
+    <div class="card-footer border-0 mt-3">
+      <div
+        class="btn-group w-100 "
+        role="group"
+        aria-label="Acciones de la tarjeta"
+      >
+        <a
           [routerLink]="['/details', product.id]"
           routerLinkActive="router-link-active"
-          class="col-12 btn btn-primary">
-          Detalles
+          class="btn btn-primary w-50"
+          title="Ver más detalles del producto"
+          [attr.aria-label]="'Ver detalles de ' + product.name"
+        >
+          <i class="fas fa-info-circle me-2"></i> Detalles
+        </a>
+        <button
+          type="button"
+          class="btn btn-success w-50 position-relative"
+          (click)="addToCart(product)"
+          title="Añadir este producto al carrito"
+          [attr.aria-label]="'Añadir ' + product.name + ' al carrito'"
+        >
+          <i class="fas fa-cart-plus me-2"></i> Añadir al carrito
         </button>
       </div>
     </div>
