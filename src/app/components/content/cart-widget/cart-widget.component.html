@@ -1,0 +1,4 @@
+<div class="cart-widget" (click)="cartService.toggleCart()">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span class="cart-count" *ngIf="cartService.totalItems > 0">{{ cartService.totalItems }}</span>
+</div>

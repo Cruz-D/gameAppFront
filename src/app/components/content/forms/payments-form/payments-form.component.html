@@ -1,0 +1,56 @@
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="p-3">
+  <fieldset class="border rounded-3 p-3 mb-3">
+    <legend class="float-none w-auto px-2 font-vrcosd">Método de pago</legend>
+    <div class="mb-3">
+      <label class="form-label font-vrcosd">Tipo de método de pago</label>
+      <select class="form-select" formControlName="tipo" required>
+        <option value="">Selecciona</option>
+        <option value="Tarjeta">&#128179; Tarjeta</option>
+        <option value="Bizum">&#128241; Bizum</option>
+        <option value="PayPal">&#128176; PayPal</option>
+        <option value="Transferencia">&#128179; Transferencia</option>
+      </select>
+      <div class="form-text">Selecciona el tipo de método de pago.</div>
+      <div class="invalid-feedback" *ngIf="paymentForm.get('tipo')?.invalid && paymentForm.get('tipo')?.touched">
+        El tipo de método de pago es obligatorio.
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="paymentForm.get('tipo')?.value === 'Tarjeta'">
+      <label class="form-label font-vrcosd">Últimos dígitos de la tarjeta</label>
+      <input type="text" class="form-control" formControlName="ultimosDigitos" maxlength="4" required pattern="^[0-9]{4}$"
+        autocomplete="cc-number"
+        [ngClass]="{'is-invalid': paymentForm.get('ultimosDigitos')?.invalid && paymentForm.get('ultimosDigitos')?.touched}">
+      <div class="form-text">Solo los 4 últimos dígitos.</div>
+      <div class="invalid-feedback" *ngIf="paymentForm.get('ultimosDigitos')?.invalid && paymentForm.get('ultimosDigitos')?.touched">
+        Introduce los 4 últimos dígitos de la tarjeta.
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="paymentForm.get('tipo')?.value !== 'Tarjeta'">
+      <label class="form-label font-vrcosd">Identificador</label>
+      <input type="text" class="form-control" formControlName="ultimosDigitos" maxlength="20" required
+        [ngClass]="{'is-invalid': paymentForm.get('ultimosDigitos')?.invalid && paymentForm.get('ultimosDigitos')?.touched}">
+      <div class="form-text">Introduce el identificador del método seleccionado.</div>
+      <div class="invalid-feedback" *ngIf="paymentForm.get('ultimosDigitos')?.invalid && paymentForm.get('ultimosDigitos')?.touched">
+        Este campo es obligatorio.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label font-vrcosd">Proveedor de pago</label>
+      <select class="form-select" formControlName="paymentProvider" required>
+        <option value="">Selecciona</option>
+        <option value="Stripe">Stripe</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Redsys">Redsys</option>
+      </select>
+      <div class="form-text">Selecciona el proveedor asociado.</div>
+      <div class="invalid-feedback" *ngIf="paymentForm.get('paymentProvider')?.invalid && paymentForm.get('paymentProvider')?.touched">
+        El proveedor es obligatorio.
+      </div>
+    </div>
+  </fieldset>
+  <div class="text-end">
+    <button type="submit" class="btn btn-success font-vrcosd px-4 py-2" [disabled]="paymentForm.invalid">
+      <i class="fa fa-save me-2"></i>Guardar método de pago
+    </button>
+  </div>
+</form>

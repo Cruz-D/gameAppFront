@@ -1,0 +1,23 @@
+<div class="cart-sidebar" [class.open]="cartService.showCart">
+  <div class="cart-header d-flex justify-content-between align-items-center">
+    <span class="font-pixel">Carrito</span>
+    <button class="btn btn-sm btn-danger" (click)="cartService.toggleCart()">&times;</button>
+  </div>
+  <div *ngIf="cartService.items.length; else emptyCart">
+    <div *ngFor="let item of cartService.items" class="cart-item d-flex align-items-center mb-2">
+      <img [src]="item.image" alt="{{item.name}}" class="me-2" style="width:40px;height:40px;object-fit:cover;">
+      <div class="flex-grow-1">
+        <div>{{item.name}}</div>
+        <div class="small text-muted">{{item.price }} x {{item.quantity}}</div>
+      </div>
+      <button class="btn btn-sm btn-outline-danger" (click)="cartService.removeFromCart(item.productId)">Eliminar</button>
+    </div>
+    <div class="cart-total mt-3 font-vrcosd">
+      Total: <span>{{cartService.totalPrice }}</span>
+    </div>
+    <a class="nav-link btn btn-success w-100 mt-3 font-vrcosd" routerLink="/cart">Ir al carrito</a>
+  </div>
+  <ng-template #emptyCart>
+    <div class="text-center text-muted mt-4">El carrito está vacío.</div>
+  </ng-template>
+</div>

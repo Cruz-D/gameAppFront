@@ -218,12 +218,13 @@
           >
             <div class="accordion-body">
               <!-- Aquí puedes poner enlaces reales si los tienes -->
-              <a href="#" class="btn btn-success me-2">Comprar</a>
-              <a href="#" class="btn btn-primary">Descargar demo</a>
+              <button class="btn btn-success me-2" (click)="addToCart(product)">Comprar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Módulo de comentarios del producto -->
+  <app-comments *ngIf="product" [productId]="product.id"></app-comments>
 </div>

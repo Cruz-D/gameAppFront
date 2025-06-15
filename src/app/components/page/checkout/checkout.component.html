@@ -1,0 +1,114 @@
+<div class="container my-5">
+  <h2 class="font-pixel mb-4 text-success">Finalizar compra</h2>
+  <form (ngSubmit)="continuarPago()">
+    <!-- DIRECCIONES -->
+    <div class="mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h4 class="font-vrcosd mb-0">Elige dirección de envío</h4>
+        <button
+          type="button"
+          class="btn btn-outline-success btn-sm font-vrcosd"
+          (click)="showAddressForm = !showAddressForm"
+        >
+          <i class="fa fa-plus"></i> Añadir dirección
+        </button>
+      </div>
+      <div *ngIf="showAddressForm">
+        <app-addresses-form
+          (save)="onAddressAdded($event)"
+          (cancel)="showAddressForm = false"
+        ></app-addresses-form>
+        <hr />
+      </div>
+      <div *ngIf="addresses.length; else noAddress">
+        <div *ngFor="let address of addresses" class="form-check mb-2">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="address"
+            [value]="address.addressId"
+            [(ngModel)]="selectedAddressId"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+          <label class="form-check-label">
+            {{ address.street }}, {{ address.city }}, {{ address.country }} (CP:
+            {{ address.postalCode }})
+            <span *ngIf="address.isDefault" class="badge bg-success ms-2"
+              >Predeterminada</span
+            >
+          </label>
+        </div>
+      </div>
+      <ng-template #noAddress>
+        <div class="text-muted">No tienes direcciones guardadas.</div>
+      </ng-template>
+    </div>
+    <!-- MÉTODOS DE PAGO -->
+    <div class="mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h4 class="font-vrcosd mb-0">Elige método de pago</h4>
+        <button
+          type="button"
+          class="btn btn-outline-success btn-sm font-vrcosd"
+          (click)="showPaymentForm = !showPaymentForm"
+        >
+          <i class="fa fa-plus"></i> Añadir método
+        </button>
+      </div>
+      <div *ngIf="showPaymentForm">
+        <app-payments-form
+          (save)="onPaymentAdded($event)"
+          (cancel)="showPaymentForm = false"
+        ></app-payments-form>
+        <hr />
+      </div>
+      <div *ngIf="paymentMethods.length; else noPayment">
+        <div *ngFor="let method of paymentMethods" class="form-check mb-2">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="payment"
+            [value]="method.paymentMethodId"
+            [(ngModel)]="selectedPaymentId"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+          <label class="form-check-label">
+            {{ method.tipo }}
+            <span *ngIf="method.ultimosDigitos"
+              >terminada en {{ method.ultimosDigitos }}</span
+            >
+            <span *ngIf="method.isDefault" class="badge bg-success ms-2"
+              >Predeterminado</span
+            >
+          </label>
+        </div>
+      </div>
+      <ng-template #noPayment>
+        <div class="text-muted">No tienes métodos de pago guardados.</div>
+      </ng-template>
+    </div>
+    <!-- BOTÓN FINALIZAR -->
+    <div class="mb-2">
+      <small class="text-info">
+        Dirección seleccionada: {{ selectedAddressId }} | Pago seleccionado:
+        {{ selectedPaymentId }}
+      </small>
+    </div>
+    <div class="text-end">
+      <button
+        class="btn btn-success font-vrcosd px-4 py-2"
+        type="button"
+        [routerLink]="['/payment-gateway']"
+        [queryParams]="{
+          addressId: selectedAddressId,
+          paymentId: selectedPaymentId
+        }"
+        [disabled]="!selectedAddressId || !selectedPaymentId"
+      >
+        <i class="fa fa-credit-card me-2"></i>Continuar con el pago
+      </button>
+    </div>
+  </form>
+</div>

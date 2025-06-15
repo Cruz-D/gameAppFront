@@ -12,7 +12,7 @@
 
 .perfil-usuario-container {
   max-width: 1100px;
-  background: var(--dark-green, #1B331C);
+  background: var(--light-muted-green, #1B331C);
   border-radius: 1.5rem;
   padding: 2rem 1rem;
   box-shadow: 0 4px 24px #0008;
@@ -40,8 +40,8 @@
 }
 
 .form-control {
-  background: var(--dark-green, #1B331C);
-  color: var(--primary-green, #69F072);
+  background: var(--primary-green, #69F072);
+  color: var(--dark-green, #1B331C) ;
   border: 1px solid var(--primary-green, #69F072);
   border-radius: 0.7rem;
   font-family: 'vrcosd', monospace;
