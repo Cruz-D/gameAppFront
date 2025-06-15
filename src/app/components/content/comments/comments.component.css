@@ -1,0 +1,55 @@
+.comments-module {
+  width: 95%;
+  margin: 2rem auto 0 auto;
+}
+
+.comments-module .card {
+  background: var(--dark-green);
+  color: var(--primary-green);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  border: none;
+}
+
+.comments-module h4 {
+  color: #ffb347;
+  font-family: 'pixel', monospace;
+}
+
+.comments-module .form-label {
+  color: var(--primary-green);
+  font-family: 'vrcosd', monospace;
+}
+
+.comments-module .form-control,
+.comments-module textarea {
+  background: var(--dark-green);
+  color: var(--primary-green);
+  border: 1px solid var(--medium-green);
+  font-family: 'vrcosd', monospace;
+}
+
+.comments-module .form-control:focus,
+.comments-module textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+.comments-module .btn-outline-warning {
+  border-color: #ffb347;
+  color: #ffb347;
+  font-family: 'vrcosd', monospace;
+}
+
+.comments-module .btn-outline-warning:hover,
+.comments-module .btn-outline-warning:focus {
+  background: #ffb347;
+  color: #23272f;
+  border-color: #ffb347;
+}
+
+.comments-module .text-muted {
+  color: #b0b0b0 !important;
+  font-family: 'vrcosd', monospace;
+}

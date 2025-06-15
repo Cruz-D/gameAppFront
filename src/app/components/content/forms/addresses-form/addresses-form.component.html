@@ -1,0 +1,112 @@
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="p-3">
+  <fieldset class="border rounded-3 p-3 mb-3">
+    <legend class="float-none w-auto px-2 font-vrcosd">Dirección</legend>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label font-vrcosd">País</label>
+        <input type="text" class="form-control" formControlName="country" required
+          [ngClass]="{'is-invalid': addressForm.get('country')?.invalid && addressForm.get('country')?.touched}" />
+        <div class="invalid-feedback" *ngIf="addressForm.get('country')?.invalid && addressForm.get('country')?.touched">
+          El país es obligatorio.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label font-vrcosd">Ciudad</label>
+        <input type="text" class="form-control" formControlName="city" required
+          [ngClass]="{'is-invalid': addressForm.get('city')?.invalid && addressForm.get('city')?.touched}" />
+        <div class="invalid-feedback" *ngIf="addressForm.get('city')?.invalid && addressForm.get('city')?.touched">
+          La ciudad es obligatoria.
+        </div>
+      </div>
+    </div>
+    <div class="row g-3 mt-1">
+      <div class="col-md-3">
+        <label class="form-label font-vrcosd">Tipo de vía</label>
+        <select class="form-select" formControlName="streetType" required
+          [ngClass]="{'is-invalid': addressForm.get('streetType')?.invalid && addressForm.get('streetType')?.touched}">
+          <option value="">Selecciona</option>
+          <option value="Calle">Calle</option>
+          <option value="Avenida">Avenida</option>
+          <option value="Plaza">Plaza</option>
+          <option value="Camino">Camino</option>
+          <option value="Carretera">Carretera</option>
+          <option value="Paseo">Paseo</option>
+          <option value="Ronda">Ronda</option>
+          <option value="Travesía">Travesía</option>
+          <option value="Urbanización">Urbanización</option>
+          <option value="Polígono">Polígono</option>
+          <option value="Barrio">Barrio</option>
+        </select>
+        <div class="form-text">Selecciona el tipo de vía.</div>
+        <div class="invalid-feedback" *ngIf="addressForm.get('streetType')?.invalid && addressForm.get('streetType')?.touched">
+          El tipo de vía es obligatorio.
+        </div>
+      </div>
+      <div class="col-md-5">
+        <label class="form-label font-vrcosd">Nombre de la vía</label>
+        <input type="text" class="form-control" formControlName="streetName" required
+          [ngClass]="{'is-invalid': addressForm.get('streetName')?.invalid && addressForm.get('streetName')?.touched}" />
+        <div class="invalid-feedback" *ngIf="addressForm.get('streetName')?.invalid && addressForm.get('streetName')?.touched">
+          El nombre de la vía es obligatorio.
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label font-vrcosd">Número</label>
+        <input type="text" class="form-control" placeholder="Opcional" formControlName="streetNumber" required pattern="^[0-9]+$"
+          [ngClass]="{'is-invalid': addressForm.get('streetNumber')?.invalid && addressForm.get('streetNumber')?.touched}" />
+        <div class="invalid-feedback" *ngIf="addressForm.get('streetNumber')?.invalid && addressForm.get('streetNumber')?.touched">
+          El número es obligatorio y debe ser numérico.
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label font-vrcosd">Portal</label>
+        <input type="text" class="form-control" formControlName="portal" />
+      </div>
+    </div>
+    <div class="row g-3 mt-1">
+      <div class="col-md-2">
+        <label class="form-label font-vrcosd">Letra</label>
+        <input type="text" class="form-control" formControlName="letter" placeholder="Opcional"/>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label font-vrcosd">Nombre del edificio</label>
+        <input type="text" class="form-control" formControlName="buildingName" placeholder="Opcional"/>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label font-vrcosd">Escalera</label>
+        <input type="text" class="form-control" formControlName="stair" placeholder="Opcional"/>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label font-vrcosd">Piso</label>
+        <input type="text" class="form-control" formControlName="floor" placeholder="Opcional"/>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label font-vrcosd">Puerta</label>
+        <input type="text" class="form-control" formControlName="door" placeholder="Opcional"/>
+      </div>
+    </div>
+    <div class="row g-3 mt-1">
+      <div class="col-md-4">
+        <label class="form-label font-vrcosd">Código Postal</label>
+        <input type="text" class="form-control" formControlName="postalCode" required pattern="^[0-9]{5}$"
+          [ngClass]="{'is-invalid': addressForm.get('postalCode')?.invalid && addressForm.get('postalCode')?.touched}" />
+        <div class="invalid-feedback" *ngIf="addressForm.get('postalCode')?.invalid && addressForm.get('postalCode')?.touched">
+          El código postal es obligatorio y debe tener 5 dígitos.
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-center">
+        <div class="form-check mt-4">
+          <input class="form-check-input" type="checkbox" formControlName="isDefault" id="isDefault" />
+          <label class="form-check-label font-vrcosd ms-2" for="isDefault">
+            Dirección predeterminada
+          </label>
+        </div>
+      </div>
+      <div class="col-md-4 text-end mt-3">
+        <button type="submit" class="btn btn-success font-vrcosd px-4 py-2" [disabled]="addressForm.invalid">
+          <i class="fa fa-save me-2"></i>Guardar dirección
+        </button>
+      </div>
+    </div>
+  </fieldset>
+</form>

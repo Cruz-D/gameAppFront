@@ -1,0 +1,16 @@
+<div class="container my-5 text-center">
+  <h2 class="font-pixel mb-4">Pasarela de Pago</h2>
+  <div *ngIf="!paymentSuccess; else pagoExitoso">
+    <p class="font-vrcosd mb-4">Simulación de pago. Pulsa el botón para procesar el pago.</p>
+    <button class="btn btn-warning font-vrcosd" (click)="procesarPago()" [disabled]="isProcessing">
+      <span *ngIf="!isProcessing"><i class="fa-solid fa-credit-card"></i> Pagar ahora</span>
+      <span *ngIf="isProcessing"><i class="fa-solid fa-spinner fa-spin"></i> Procesando...</span>
+    </button>
+  </div>
+  <ng-template #pagoExitoso>
+    <div class="alert alert-success mt-4 font-vrcosd">
+      <i class="fa-solid fa-check-circle"></i> ¡Pago realizado con éxito!
+    </div>
+    <a routerLink="/" class="btn btn-outline-success mt-3 font-vrcosd">Volver a la tienda</a>
+  </ng-template>
+</div>

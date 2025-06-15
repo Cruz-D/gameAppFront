@@ -1,0 +1,45 @@
+<form [formGroup]="passForm" (ngSubmit)="onSubmit()" class="p-3">
+  <div class="mb-3">
+    <label class="form-label font-vrcosd">Contraseña actual</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="oldPassword"
+      required
+      [ngClass]="{'is-invalid': passForm.get('oldPassword')?.invalid && passForm.get('oldPassword')?.touched}"
+    />
+    <div class="invalid-feedback" *ngIf="passForm.get('oldPassword')?.invalid && passForm.get('oldPassword')?.touched">
+      Introduce tu contraseña actual.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label font-vrcosd">Nueva contraseña</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="newPassword"
+      required
+      [ngClass]="{'is-invalid': passForm.get('newPassword')?.invalid && passForm.get('newPassword')?.touched}"
+    />
+    <div class="invalid-feedback" *ngIf="passForm.get('newPassword')?.invalid && passForm.get('newPassword')?.touched">
+      La nueva contraseña es obligatoria y debe tener al menos 6 caracteres.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label font-vrcosd">Repetir nueva contraseña</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="repeatPassword"
+      required
+      [ngClass]="{'is-invalid': (passForm.get('repeatPassword')?.invalid && passForm.get('repeatPassword')?.touched) || (passForm.value.newPassword !== passForm.value.repeatPassword && passForm.get('repeatPassword')?.touched)}"
+    />
+    <div class="invalid-feedback" *ngIf="passForm.value.newPassword !== passForm.value.repeatPassword && passForm.get('repeatPassword')?.touched">
+      Las contraseñas no coinciden.
+    </div>
+  </div>
+  <div class="text-end">
+    <button type="button" class="btn btn-secondary font-vrcosd me-2" (click)="onCancel()">Cancelar</button>
+    <button type="submit" class="btn btn-success font-vrcosd" [disabled]="passForm.invalid">Guardar</button>
+  </div>
+</form>
