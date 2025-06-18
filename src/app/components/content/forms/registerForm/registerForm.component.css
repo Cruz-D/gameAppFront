@@ -1,17 +1,30 @@
-/* Importar fuentes */
+/* Fuentes */
 @font-face {
   font-family: 'vrcosd';
   src: url('/src/app/shared/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('truetype');
 }
-
 @font-face {
   font-family: 'pixel';
   src: url('/src/app/shared/fonts/pixeled/Pixeled.ttf') format('truetype');
 }
 
-/* Variables CSS */
+/* Variables */
+:root {
+  --primary-green: #69F072;
+  --dark-green: #1B331C;
+  --medium-green: #78C47D;
+  --muted-green: #304531;
+  --hover-green: #607062;
+  --light-muted-green: #789C7A;
+  --amber: #FFB700;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --border-radius: 0.5rem;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-/* Fondo sin efecto CRT */
+/* Layout principal */
 .container-fluid {
   min-height: 100vh;
   display: flex;
@@ -20,67 +33,52 @@
   background-color: var(--dark-green);
 }
 
-/* Estilo para la sección de texto */
-.colum-text {
-  font-family: 'vrcosd', monospace;
-  font-weight: bold;
+/* Sección de texto y formulario */
+.colum-text,
+.colum-form {
   margin: var(--spacing-md);
   padding: var(--spacing-lg);
   background-color: var(--dark-green);
   border-radius: var(--border-radius);
-
+  box-shadow: var(--shadow);
+  font-family: 'vrcosd', monospace;
 }
 
-.colum-text h1 {
+.colum-text {
+  font-weight: bold;
+}
+
+.colum-text h1,
+.colum-form h1 {
   font-family: 'pixel', 'vrcosd', monospace;
   color: var(--primary-green);
   font-size: 1.8rem;
 }
 
-.colum-text p {
+.colum-text p,
+.colum-form p {
   color: var(--primary-green);
   font-size: 1rem;
   line-height: 1.5;
   text-align: justify;
 }
 
-.colum-text a {
-  color: var(--amber);
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.colum-text a:hover {
-  color: var(--light-muted-green);
-}
-
-/* Estilo para la sección del formulario */
+/* Formulario */
 .colum-form {
-  margin: var(--spacing-md);
-  padding: var(--spacing-lg);
-  border-radius: var(--border-radius);
-  background-color: var(--dark-green);
   color: var(--primary-green);
-  font-family: 'vrcosd', monospace;
   font-size: 1.1rem;
-  box-shadow: var(--shadow);
-}
-
-.colum-form h2 {
-  font-family: 'pixel', 'vrcosd', monospace;
-  margin-bottom: var(--spacing-md);
 }
 
 .colum-form a {
   color: var(--amber);
   text-decoration: underline;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
-
 .colum-form a:hover {
   color: var(--light-muted-green);
 }
 
+/* Inputs y selects */
 .colum-form .form-control,
 .colum-form .form-select {
   background-color: var(--muted-green);
@@ -88,21 +86,20 @@
   color: var(--primary-green);
   border-radius: var(--border-radius);
   padding: var(--spacing-sm);
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  transition: border-color 0.3s, background-color 0.3s;
 }
-
 .colum-form .form-control:focus,
 .colum-form .form-select:focus {
   background-color: var(--dark-green);
   border-color: var(--primary-green);
   outline: none;
 }
-
 .colum-form .form-control::placeholder {
   color: var(--medium-green);
   opacity: 0.7;
 }
 
+/* Botón principal */
 .colum-form .btn-primary {
   font-family: 'pixel', 'vrcosd', monospace;
   background-color: var(--primary-green);
@@ -110,14 +107,12 @@
   color: var(--dark-green);
   border-radius: var(--border-radius);
   padding: var(--spacing-sm) var(--spacing-md);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s, transform 0.2s;
 }
-
 .colum-form .btn-primary:hover {
   background-color: var(--light-muted-green);
   transform: translateY(-2px);
 }
-
 .colum-form .btn-primary:disabled {
   background-color: var(--hover-green);
   border-color: var(--hover-green);
@@ -125,63 +120,85 @@
   transform: none;
 }
 
-.colum-form .text-danger small {
-  font-family: 'vrcosd', monospace;
+/* Feedback de error */
+.colum-form .invalid-feedback {
   font-size: 0.9rem;
   background-color: var(--medium-green);
   color: var(--dark-green);
   border-radius: var(--border-radius);
   padding: var(--spacing-sm);
   display: inline-block;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.3s;
 }
 
-/* Animación para mensajes de error */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Estilo para el ícono de visibilidad de contraseña */
-.colum-form .btn-link {
-  color: var(--primary-green);
-  transition: color 0.3s ease;
-}
-
-.colum-form .btn-link:hover {
-  color: var(--light-muted-green);
-}
-
-/* Estilo para el check de términos */
+/* Checkbox */
 .colum-form .form-check-input {
   background-color: var(--muted-green);
   border-color: var(--primary-green);
 }
-
 .colum-form .form-check-input:checked {
   background-color: var(--primary-green);
   border-color: var(--primary-green);
 }
 
-/* Media queries para diseño responsivo */
+/* Input-group para contraseñas */
+.input-group {
+  display: flex;
+  align-items: stretch;
+}
+.input-group .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.input-group .input-group-text,
+.input-group .btn-link {
+  background: var(--muted-green);
+  border: 1px solid var(--muted-green);
+  color: var(--primary-green);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-md);
+  cursor: pointer;
+  transition: color 0.3s, background 0.3s;
+}
+.input-group .btn-link:hover,
+.input-group .input-group-text:hover {
+  color: var(--amber);
+  background: var(--hover-green);
+  text-decoration: none;
+}
+.input-group .btn-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+.input-group .fas {
+  font-size: 1.2em;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
 @media (max-width: 767.98px) {
   .colum-text, .colum-form {
     margin: var(--spacing-sm);
     padding: var(--spacing-md);
   }
-
-  .colum-text h1 {
+  .colum-text h1, .colum-form h1 {
     font-size: 1.5rem;
   }
-
-  .colum-text p {
+  .colum-text p, .colum-form p {
     font-size: 0.9rem;
   }
-
   .colum-form {
     font-size: 1rem;
   }
-
   .colum-form .btn-primary {
     font-size: 1rem;
     padding: var(--spacing-sm);

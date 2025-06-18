@@ -1,63 +1,109 @@
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100">
+<div class="container-fluid">
   <div class="row w-100 justify-content-center">
-    <div class="col-md-5 col-12 colum-text p-4">
-      <h1><i class="fas fa-user-circle me-2"></i> Accede a tu perfil</h1>
+    <div class="col-md-5 col-12 colum-text">
+      <h1><i class="fas fa-user-circle me-2"></i> Accede a tu cuenta</h1>
       <p>
-        Gestiona tu cuenta de forma sencilla y personalizada. Consulta tu historial, ajusta tus preferencias y accede a tus juegos desde cualquier dispositivo.
+        Gestiona tus pedidos, revisa tu historial de compras y actualiza tus
+        datos personales de forma sencilla y segura.
       </p>
-      <hr class="my-4" />
-      <h1><i class="fas fa-download me-2"></i> Descarga los juegos que quieras</h1>
+      <hr />
+      <h1>
+        <i class="fas fa-shopping-cart me-2"></i> Descubre productos exclusivos
+      </h1>
       <p>
-        Explora un catálogo increíble de juegos y descárgalos en segundos. Disfruta de actualizaciones automáticas y almacenamiento en la nube para no perder tu progreso.
+        Explora nuestro catálogo con las últimas novedades y ofertas especiales.
+        Añade tus productos favoritos al carrito y realiza compras en pocos
+        pasos.
       </p>
-      <hr class="my-4" />
-      <h1><i class="fas fa-comments me-2"></i> Interactúa con nuestra comunidad</h1>
+      <hr />
+      <h1><i class="fas fa-headset me-2"></i> Atención personalizada</h1>
       <p>
-        Conéctate con otros jugadores, comparte estrategias y participa en eventos exclusivos. Únete a una comunidad apasionada y descubre nuevas amistades.
+        Contacta con nuestro equipo de soporte para resolver dudas, gestionar
+        devoluciones o recibir recomendaciones personalizadas. ¡Estamos aquí
+        para ayudarte!
       </p>
     </div>
-    <div class="col-md-5 col-12 colum-form p-4">
-      <h1 class="text-center"><i class="fa-solid fa-headset me-2"></i> Inicia sesión</h1>
-      <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="needs-validation" novalidate>
+    <div class="col-md-5 col-12 colum-form">
+      <h1 class="text-center">
+        <i class="fa-solid fa-headset me-2"></i> Inicia sesión
+      </h1>
+      <form [formGroup]="loginForm" (ngSubmit)="loginUser()" novalidate>
         <div class="mb-3 position-relative">
-          <label for="usernameOrEmail" class="form-label">Usuario o correo electrónico</label>
+          <label for="usernameOrEmail" class="form-label"
+            >Usuario o correo electrónico</label
+          >
           <input
             type="text"
             class="form-control"
             id="usernameOrEmail"
             formControlName="usernameOrEmail"
             placeholder="Ingresa tu usuario o correo"
-            aria-describedby="usernameOrEmailFeedback"
             autocomplete="username"
           />
-          <div *ngIf="loginForm.get('usernameOrEmail')?.touched" class="position-absolute top-50 end-0 translate-middle-y pe-3">
-            <i *ngIf="loginForm.get('usernameOrEmail')?.valid" class="fas fa-check"></i>
+          <div
+            *ngIf="loginForm.get('usernameOrEmail')?.touched"
+            class="position-absolute top-50 end-0 translate-middle-y pe-3"
+          >
+            <i
+              *ngIf="loginForm.get('usernameOrEmail')?.valid"
+              class="fas fa-check"
+            ></i>
           </div>
-          <div *ngIf="loginForm.get('usernameOrEmail')?.invalid && loginForm.get('usernameOrEmail')?.touched" class="invalid-feedback d-block">
-            <small *ngIf="loginForm.get('usernameOrEmail')?.errors?.['required']"><i class="fas fa-xmark me-1"></i> El usuario o correo es requerido.</small>
-            <small *ngIf="loginForm.get('usernameOrEmail')?.errors?.['email']"><i class="fas fa-xmark me-1"></i> El correo electrónico no es válido.</small>
+          <div
+            *ngIf="
+              loginForm.get('usernameOrEmail')?.invalid &&
+              loginForm.get('usernameOrEmail')?.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            <small
+              *ngIf="loginForm.get('usernameOrEmail')?.errors?.['required']"
+              ><i class="fas fa-xmark me-1"></i> El usuario o correo es
+              requerido.</small
+            >
+            <small *ngIf="loginForm.get('usernameOrEmail')?.errors?.['email']"
+              ><i class="fas fa-xmark me-1"></i> El correo electrónico no es
+              válido.</small
+            >
           </div>
         </div>
-        <div class="mb-3 position-relative">
+        <div class="mb-3">
           <label for="password" class="form-label">Contraseña</label>
-          <input
-            [type]="showPassword ? 'text' : 'password'"
-            class="form-control"
-            id="password"
-            formControlName="password"
-            placeholder="Ingresa tu contraseña"
-            aria-describedby="passwordFeedback"
-            autocomplete="current-password"
-          />
-          <button type="button" class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3" (click)="togglePasswordVisibility()">
-            <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
-          </button>
-          <div *ngIf="loginForm.get('password')?.touched" class="position-absolute top-50 end-0 translate-middle-y pe-5">
-            <i *ngIf="loginForm.get('password')?.valid" class="fas fa-check"></i>
+          <div class="input-group">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              placeholder="Ingresa tu contraseña"
+              autocomplete="current-password"
+            />
+            <button
+              type="button"
+              class="btn btn-link input-group-text"
+              (click)="togglePasswordVisibility()"
+              tabindex="-1"
+            >
+              <i
+                class="fas"
+                [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+              ></i>
+            </button>
           </div>
-          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="invalid-feedback d-block">
-            <small *ngIf="loginForm.get('password')?.errors?.['required']"><i class="fas fa-xmark me-1"></i> La contraseña es requerida.</small>
-            <small *ngIf="loginForm.get('password')?.errors?.['minlength']"><i class="fas fa-xmark me-1"></i> La contraseña debe tener al menos 6 caracteres.</small>
+          <div
+            *ngIf="
+              loginForm.get('password')?.touched &&
+              loginForm.get('password')?.invalid
+            "
+            class="invalid-feedback d-block"
+          >
+            <small *ngIf="loginForm.get('password')?.errors?.['required']">
+              <i class="fas fa-xmark me-1"></i> La contraseña es requerida.
+            </small>
+            <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+              <i class="fas fa-xmark me-1"></i> La contraseña debe tener al
+              menos 6 caracteres.
+            </small>
           </div>
         </div>
         <div class="form-check form-switch mb-3">
@@ -67,22 +113,31 @@
             id="rememberMe"
             formControlName="rememberMe"
           />
-          <label class="form-check-label" for="rememberMe">Recordar usuario</label>
+          <label class="form-check-label" for="rememberMe"
+            >Recordar usuario</label
+          >
         </div>
         <div class="mb-3">
-          <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+          <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
-        <hr class="my-4" />
+        <hr />
         <button
           type="submit"
           class="btn btn-primary w-100 d-flex align-items-center justify-content-center"
           [disabled]="loginForm.invalid || isSubmitting"
         >
-          <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-          {{ isSubmitting ? 'Accediendo...' : 'Acceder' }}
+          <span
+            *ngIf="isSubmitting"
+            class="spinner-border spinner-border-sm me-2"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          {{ isSubmitting ? "Accediendo..." : "Acceder" }}
         </button>
         <div class="mt-2 text-center">
-          <a [routerLink]="['/register']" class="text-decoration-none">¿No estás registrado? Apúntate aquí</a>
+          <a [routerLink]="['/register']"
+            >¿No estás registrado? Apúntate aquí</a
+          >
         </div>
       </form>
     </div>
