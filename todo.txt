@@ -1,3 +1,0 @@
-manejar contenedor de contenido con router
-
-crear formularios de login y registgro con validaciones y probar con json server

@@ -16,6 +16,10 @@ steps:
     ng build --configuration=production --verbose
   displayName: 'npm install and build'
 
+- script: |
+    cp routes.json dist/game-app-front/browser
+  displayName: 'Copiar routes.json a la carpeta de salida'
+
 - task: AzureStaticWebApp@0
   displayName: 'Deploy to Azure Static Web Apps'
   inputs:
