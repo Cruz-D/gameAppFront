@@ -8,7 +8,7 @@ import { IRegisterUser } from '../../model/user/IRegisterUser.interface';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:32770/api/Auth';
+  private apiUrl = 'https://gamehub-develop-e0edejfhhtbjg3gd.canadacentral-01.azurewebsites.net/api/Auth';
 
   constructor(private http: HttpClient) {}
 
@@ -33,6 +33,21 @@ export class AuthService {
       try {
         const payload = JSON.parse(atob(token.split('.')[1]));
         return payload.sub || '';
+      } catch (e) {
+        return '';
+      }
+    }
+    return '';
+  }
+
+  // Este metodo obtiene el nombre de usuario del token JWT
+  getUserNameFromToken(): string {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        console.log('Payload:', payload.unique_name); // Para depuración
+        return payload.unique_name || '';
       } catch (e) {
         return '';
       }

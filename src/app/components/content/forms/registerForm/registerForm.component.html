@@ -99,101 +99,88 @@
             >
           </div>
         </div>
-        <div class="mb-3 position-relative">
+        <div class="mb-3">
           <label for="password" class="form-label">Contraseña</label>
-          <input
-            [type]="showPassword ? 'text' : 'password'"
-            class="form-control"
-            id="password"
-            formControlName="password"
-            placeholder="Ingresa tu contraseña"
-            aria-describedby="passwordFeedback"
-          />
-          <button
-            type="button"
-            class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3"
-            (click)="togglePasswordVisibility('password')"
-          >
-            <i
-              class="fas"
-              [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
-            ></i>
-          </button>
-          <div
-            *ngIf="registerForm.get('password')?.touched"
-            class="position-absolute top-50 end-0 translate-middle-y pe-5"
-          >
-            <i
-              *ngIf="registerForm.get('password')?.valid"
-              class="fas fa-check"
-            ></i>
+          <div class="input-group">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              placeholder="Ingresa tu contraseña"
+            />
+            <button
+              type="button"
+              class="btn btn-link input-group-text"
+              (click)="togglePasswordVisibility('password')"
+              tabindex="-1"
+            >
+              <i
+                class="fas"
+                [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+              ></i>
+            </button>
           </div>
           <div
             *ngIf="
-              registerForm.get('password')?.invalid &&
-              registerForm.get('password')?.touched
+              registerForm.get('password')?.touched &&
+              registerForm.get('password')?.invalid
             "
             class="invalid-feedback d-block"
           >
-            <small *ngIf="registerForm.get('password')?.errors?.['required']"
-              ><i class="fas fa-xmark me-1"></i> La contraseña es
-              requerida.</small
-            >
-            <small *ngIf="registerForm.get('password')?.errors?.['pattern']"
-              ><i class="fas fa-xmark me-1"></i> Mínimo 8 caracteres, con letras
-              y números.</small
-            >
-          </div>
-        </div>
-        <div class="mb-3 position-relative">
-          <label for="RepPassword" class="form-label"
-            >Repite la contraseña</label
-          >
-          <input
-            [type]="showRepPassword ? 'text' : 'password'"
-            class="form-control"
-            id="RepPassword"
-            formControlName="RepPassword"
-            placeholder="Repite tu contraseña"
-            aria-describedby="repPasswordFeedback"
-          />
-          <button
-            type="button"
-            class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3"
-            (click)="togglePasswordVisibility('repPassword')"
-          >
-            <i
-              class="fas"
-              [ngClass]="showRepPassword ? 'fa-eye-slash' : 'fa-eye'"
-            ></i>
-          </button>
-          <div
-            *ngIf="registerForm.get('RepPassword')?.touched"
-            class="position-absolute top-50 end-0 translate-middle-y pe-5"
-          >
-            <i
-              *ngIf="registerForm.get('RepPassword')?.valid"
-              class="fas fa-check"
-            ></i>
-          </div>
-          <div
-            *ngIf="
-              registerForm.get('RepPassword')?.invalid &&
-              registerForm.get('RepPassword')?.touched
-            "
-            class="invalid-feedback d-block"
-          >
-            <small *ngIf="registerForm.get('RepPassword')?.errors?.['required']"
-              ><i class="fas fa-xmark me-1"></i> La confirmación es
-              requerida.</small
-            >
-            <small *ngIf="registerForm.get('RepPassword')?.errors?.['mismatch']"
-              ><i class="fas fa-xmark me-1"></i> Las contraseñas no
-              coinciden.</small
-            >
+            <small *ngIf="registerForm.get('password')?.errors?.['required']">
+              <i class="fas fa-xmark me-1"></i> La contraseña es requerida.
+            </small>
+            <small *ngIf="registerForm.get('password')?.errors?.['pattern']">
+              <i class="fas fa-xmark me-1"></i> Mínimo 8 caracteres, con letras
+              y números.
+            </small>
           </div>
         </div>
 
+        <div class="mb-3">
+          <label for="RepPassword" class="form-label"
+            >Repite la contraseña</label
+          >
+          <div class="input-group">
+            <input
+              [type]="showRepPassword ? 'text' : 'password'"
+              class="form-control"
+              id="RepPassword"
+              formControlName="RepPassword"
+              placeholder="Repite tu contraseña"
+            />
+            <button
+              type="button"
+              class="btn btn-link input-group-text"
+              (click)="togglePasswordVisibility('RepPassword')"
+              tabindex="-1"
+            >
+              <i
+                class="fas"
+                [ngClass]="showRepPassword ? 'fa-eye-slash' : 'fa-eye'"
+              ></i>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('RepPassword')?.touched &&
+              registerForm.get('RepPassword')?.invalid
+            "
+            class="invalid-feedback d-block"
+          >
+            <small
+              *ngIf="registerForm.get('RepPassword')?.errors?.['required']"
+            >
+              <i class="fas fa-xmark me-1"></i> La confirmación es requerida.
+            </small>
+            <small
+              *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('RepPassword')?.touched"
+            >
+              <i class="fas fa-xmark me-1"></i> Las contraseñas no coinciden.
+            </small>
+          </div>
+        </div>
         <!-- Sección: Información personal -->
         <h5 class="mb-3">Información personal</h5>
         <hr class="mb-4" />

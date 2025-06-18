@@ -1,31 +1,45 @@
 <div class="container my-5">
-  <h2 class="font-pixel mb-4">Mis pedidos</h2>
+  <h2 class="text-center mb-4">Mis Órdenes</h2>
+
   <div *ngIf="loading" class="text-center my-5">
-    <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+    <div class="spinner-border text-success" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div>Cargando tus órdenes...</div>
   </div>
-  <div *ngIf="!loading && orders.length === 0" class="text-center text-muted">
-    No tienes pedidos realizados.
+
+  <div *ngIf="!loading && orders.length === 0" class="alert alert-info text-center">
+    No tienes órdenes registradas.
   </div>
-  <div *ngIf="orders.length > 0">
-    <div *ngFor="let order of orders" class="card mb-3 shadow-sm">
-      <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
-          <div>
-            <span class="font-vrcosd">Pedido #{{ order.orderId }}</span>
-            <span class="badge bg-success ms-2" *ngIf="order.status === 'Completed'">Completado</span>
-            <span class="badge bg-warning ms-2" *ngIf="order.status !== 'Completed'">{{ order.status }}</span>
-          </div>
-          <small class="text-muted">{{ order.createdAt | date:'short' }}</small>
-        </div>
-        <div class="mt-2">
-          <div *ngFor="let item of order.items" class="mb-1">
-            <span class="font-vrcosd">{{ item.productName }}</span> x {{ item.quantity }} - {{ item.price | currency }}
-          </div>
-        </div>
-        <div class="text-end font-vrcosd mt-2">
-          Total: {{ order.total | currency }}
-        </div>
-      </div>
+
+  <div *ngIf="!loading && orders.length > 0">
+    <div class="table-responsive">
+      <table class="table table-dark table-striped table-bordered align-middle">
+        <thead>
+          <tr>
+            <th>ID de Orden</th>
+            <th>Estado</th>
+            <th>Fecha de Orden</th>
+            <th>Fecha de Recepción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.orderId }}</td>
+            <td>
+              <span [ngClass]="{
+                'badge bg-warning text-dark': order.stateOfOrder === 'Pending',
+                'badge bg-success': order.stateOfOrder === 'Completed',
+                'badge bg-danger': order.stateOfOrder === 'Cancelled'
+              }">
+                {{ order.stateOfOrder }}
+              </span>
+            </td>
+            <td>{{ order.orderDate | date:'medium' }}</td>
+            <td>{{ order.receivedDate | date:'medium' }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

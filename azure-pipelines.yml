@@ -23,4 +23,3 @@ steps:
     output_location: 'dist/game-app-front/browser' # Cambia si tu build sale en otra carpeta
     azure_static_web_apps_api_token: '$(AZURE_STATIC_WEB_APPS_API_TOKEN)'
     # El nombre del recurso y la suscripción se toman del recurso vinculado en Azure, no es necesario especificarlos aquí.
-

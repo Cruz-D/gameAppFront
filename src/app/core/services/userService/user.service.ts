@@ -12,7 +12,7 @@ export class UserService {
 
 
 
-  private apiUrl = 'https://localhost:32770/api/User'; // Replace with your API URL
+  private apiUrl = 'https://gamehub-develop-e0edejfhhtbjg3gd.canadacentral-01.azurewebsites.net/api/User'; // Replace with your API URL
 
 
   // Method to get user details by ID

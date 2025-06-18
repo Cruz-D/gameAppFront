@@ -49,9 +49,6 @@ export class DetailsComponent implements OnInit {
       this.loading = false;
       return;
     }
-
-
-
     // Cargar el producto por ID
     this.loading = true;
     this.error = null; // Reiniciar el error antes de la carga
@@ -68,5 +65,11 @@ export class DetailsComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+
+  // Metodo apra obtener los comentarios del producto
+  getCommentsByProductId(productId: string) {
+    return this.productService.getCommentsByProductId(productId);
   }
 }
