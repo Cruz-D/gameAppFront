@@ -13,9 +13,7 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-
     ng build --configuration=production --verbose
-
   displayName: 'npm install and build'
 
 - task: AzureStaticWebApp@0
