@@ -57,6 +57,17 @@
   border-radius: 8px;
 }
 
+.btn-outline-light {
+
+  color: #69F072 !important;
+  border-color: #69F072 !important;
+}
+
+.btn-outline-light:hover {
+  background-color: #69F072 !important;
+  color: #304531 !important;
+}
+
 .navbar-toggler-icon {
   color: #ffffff;
   font-size: 1.2rem;
@@ -83,6 +94,36 @@
   color: #304531;
 }
 
+.btn-cart {
+  background: var(--primary-green, #69F072);
+  color: var(--dark-green, #1B331C);
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  position: relative;
+}
+.btn-cart:hover {
+  background: var(--amber, #FFB700);
+  color: var(--dark-green, #1B331C);
+  transform: scale(1.08);
+}
+.cart-badge {
+  font-size: 0.8em;
+  min-width: 22px;
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 0.4s;
+}
+@keyframes bounce {
+  0% { transform: scale(0.7);}
+  60% { transform: scale(1.2);}
+  100% { transform: scale(1);}
+}
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

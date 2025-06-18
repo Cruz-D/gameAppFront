@@ -24,8 +24,8 @@
     <div class="col-md-6 d-flex flex-column align-items-center">
       <img
         class="img-fluid rounded shadow mb-3"
-        [src]="product.images[0]?.url"
-        [alt]="product.images[0]?.description || product.name"
+        [src]="product.images[0].url"
+        [alt]="product.images[0].description || product.name"
       />
       <div class="d-flex flex-wrap gap-2 mt-2" *ngIf="product.images.length > 1">
         <img *ngFor="let img of product.images.slice(1)" [src]="img.url" [alt]="img.description" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">

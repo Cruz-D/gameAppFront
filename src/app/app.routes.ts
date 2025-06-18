@@ -11,6 +11,7 @@ import { CartPageComponent } from './components/page/cart-page/cart-page.compone
 import { CheckoutComponent } from './components/page/checkout/checkout.component';
 import { PaymentGatewayComponent } from './components/page/payment-gateway/payment-gateway.component';
 import { MyOrdersComponent } from './components/page/my-orders/my-orders.component';
+import { AboutComponent } from './components/page/about/about.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirigir la ruta raíz a 'home'
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'cart', component: CartPageComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'payment-gateway', component: PaymentGatewayComponent },
-  { path: 'my-orders', component: MyOrdersComponent }
+  { path: 'my-orders', component: MyOrdersComponent },
+  { path: 'about', component: AboutComponent, data: { title: 'About' } }
 
 ];

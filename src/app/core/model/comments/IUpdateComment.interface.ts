@@ -6,7 +6,6 @@ export interface IComment {
   productId: string;
   content: string;
   score: string;
-  createdAt: string;
   updatedAt: string;
   isEdited?: boolean | null;
   isDeleted?: boolean | null;

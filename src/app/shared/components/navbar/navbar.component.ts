@@ -3,19 +3,19 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/authService/auth.service';
 import { SidebarComponent } from "../sidebar/sidebar.component";
-import { CartWidgetComponent } from '../../../components/content/cart-widget/cart-widget.component';
+import { CartService } from '../../../core/services/cartServices/cart.service';
 
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [RouterModule, CommonModule, SidebarComponent, CartWidgetComponent]
+  imports: [RouterModule, CommonModule, SidebarComponent]
 })
 export class NavbarComponent implements OnInit {
   isSidebarOpen = false;
 
-  constructor(public authServices: AuthService) { }
+  constructor(public authServices: AuthService, public cartService: CartService) { }
 
   ngOnInit() {
   }
